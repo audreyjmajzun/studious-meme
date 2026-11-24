@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chem 6A Final Prep</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#ff5a4e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Chem 6A">
+<link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -116,6 +122,7 @@ sup,sub{font-size:.72em;line-height:0}
 <main id="main"></main>
 <footer class="band muted">Built from your Lectures 20–24, Midterms 1 and 2, and the syllabus. Progress is saved in this browser on this device. Final: Sat Dec 5, 2026, multiple choice, 2 h 50 min.</footer>
 <script>
+if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}
 // ===== Section 3: material after Midterm 2 (Lectures 20–24) =====
 // Mini markup: ^{..} or ^2 / ^2+ = superscript, _{..} or _2 = subscript, **b** = bold
 const TOPICS = [
@@ -932,7 +939,7 @@ function finish(){const s=session;s.over=true;
 function rDone(){const s=session,c=s.res.filter(r=>r.ok).length,n=s.res.length;
  const bySec=[1,2,3].map(x=>{const r=s.res.filter(y=>y.sec===x);return {x,c:r.filter(y=>y.ok).length,n:r.length}}).filter(x=>x.n);
  const prev={1:76,2:80};const misses=s.items.filter(it=>it.done&&!it.ok);
- return `<section class="band"><p class="eyebrow">${esc(s.title)} · finished</p><h1>${c} / ${n} correct (${Math.round(c/n*100)}%)</h1>
+ return `<section class="band"><p class="eyebrow">${esc(s.title)} · finished</p><h1>${c} / ${n} correct (${Math.round(c/n*100)}%)</h1>${s.kind==='mock'?`<p class="why">Target for an A: <b>87%+ on every section</b> (that assumes full discussion and homework extra credit).</p>`:''}
  ${s.kind==='mock'?`<div class="secres">${bySec.map(b=>{const p=Math.round(b.c/b.n*100);return `<div class="card s${b.x}"><p>Section ${b.x}</p><b>${p}%</b><small>${prev[b.x]?(p>prev[b.x]?`Beats your Midterm ${b.x} score (${prev[b.x]}%). This section would replace it.`:`Your Midterm ${b.x} score was ${prev[b.x]}%. Keep going.`):'New material: no midterm to replace.'}</small></div>`}).join('')}</div>`:''}
  ${misses.length?`<h2>Review your misses</h2>${misses.map(it=>`<div class="miss"><p class="eyebrow">${tlabel(it.q.t)}</p><div>${fm(it.q.q)}</div><p class="ans">Answer: <b>${it.q.type==='rank'?it.q.items.map(fm).join(' > '):fm(it.q.o[it.q.a])}</b></p><p class="muted">${fm(it.q.ex||'')}</p></div>`).join('')}`:'<p class="why">Perfect run.</p>'}
  <div class="row"><button class="btn" id="again">Practice weak spots</button><button class="btn ghost" id="home">Back to today</button></div></section>`}
@@ -1006,7 +1013,7 @@ function rCheat(){const eq=[['c = λν','c = 3.00×10^8 m/s'],['E = hν = hc/λ'
 function rProgress(){const tot=Object.values(ST.tp).reduce((a,s)=>[a[0]+s.c,a[1]+s.c+s.w],[0,0]);
  const sec=s=>{const ts=TOPICS.filter(t=>t.sec===s).map(t=>t.id);let c=0,n=0;ts.forEach(t=>{const x=ST.tp[t];if(x){c+=x.c;n+=x.c+x.w}});return n?Math.round(c/n*100):null};
  const wq=weakQs();
- return `<section class="band"><h1>Progress</h1><p class="why">${tot[1]?`${tot[1]} questions answered, ${Math.round(tot[0]/tot[1]*100)}% correct overall.`:'Nothing answered yet. Your stats show up here as you practice.'} Saved on this device.</p>
+ return `<section class="band"><h1>Progress</h1><p class="why">${tot[1]?`${tot[1]} questions answered, ${Math.round(tot[0]/tot[1]*100)}% correct overall.`:'Nothing answered yet. Your stats show up here as you practice.'} Saved on this device.</p><p class="why"><b>Goal: an A (93%).</b> With full discussion credit and the 5% homework extra credit, scoring about <b>87%</b> on each final section gets you there, because each section replaces your 76% and 80% midterms. Without the homework credit, you'd need about <b>92%</b>.</p>
  <div class="secres">${[3,2,1].map(s=>{const p=sec(s);return `<div class="card s${s}"><p>Section ${s}</p><b>${p==null?'–':p+'%'}</b><small>${s===1?'Midterm 1 was 76%':s===2?'Midterm 2 was 80%':'New material'}</small></div>`}).join('')}</div>
  <h2>By topic</h2><div class="bars">${TOPICS.map(t=>{const a=acc(t.id),n=attempts(t.id);return `<div class="bar"><span>${tlabel(t.id)}</span><span class="tr"><i class="s${t.sec}" style="width:${a==null?0:a*100}%"></i></span><span class="v">${a==null?'–':Math.round(a*100)+'%'} <small>${n}</small></span></div>`}).join('')}</div>
  <h2>Missed questions (${wq.length})</h2>${wq.length?wq.slice(0,40).map(q=>`<div class="miss"><p class="eyebrow">${tlabel(q.t)}</p><div>${fm(q.q)}</div><p class="ans">Answer: <b>${q.type==='rank'?q.items.map(fm).join(' > '):fm(q.o[q.a])}</b></p></div>`).join(''):'<p class="muted">None right now.</p>'}
