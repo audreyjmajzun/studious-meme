@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chem 6A Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday study tool: calm, quick to scan, built for an iPad
+   IDEA a periodic table: every topic is an element tile, coloured by the exam section it belongs to
+   PICTURE the day plan with a progress ring; topic tiles whose bars fill as you master them; Lewis structures drawn live
+   COLOUR white ground, ink #15171c; section 3 coral #ff5a4e, section 2 blue #2f6bff, section 1 gold #f2b400
+   TYPE Space Grotesk 700 for titles and tile symbols, Inter for text
+   LAYOUT sticky title + tabs; two-column cards on iPad, one column under 700px */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#101216);--ink:light-dark(#15171c,#eef0f4);--mut:light-dark(#5d6370,#9aa1ad);--line:light-dark(#e4e6eb,#262a33);--card:light-dark(#f6f7f9,#171a20);--s3:#ff5a4e;--s2:#2f6bff;--s1:#f2b400;--s3t:light-dark(#fff0ee,#2a1715);--s2t:light-dark(#edf2ff,#141c30);--s1t:light-dark(#fff8e0,#272010);--ok:#12a150;--bad:#e5484d}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}body{background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip;-webkit-text-size-adjust:100%}
+h1,h2,.sym,.ring b,.secres b{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.02em}
+h1{font-size:clamp(30px,4.2vw,44px);line-height:1.05;margin:4px 0 10px;text-wrap:balance}h2{font-size:21px;line-height:1.2;margin:22px 0 10px}
+.band{padding:clamp(18px,3vw,36px) max(4vw,16px);max-width:1180px;margin:0 auto}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px max(4vw,16px) 6px;max-width:1180px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;font:700 18px "Space Grotesk",sans-serif}.brand i{display:grid;place-items:center;width:34px;height:34px;border-radius:7px;background:var(--s3);color:#fff;font-style:normal;font-size:15px}
+#count{font-size:14px;color:var(--mut);white-space:nowrap}#count b{color:var(--s3);font-size:18px}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding:4px max(4vw,16px) 8px;max-width:1180px;margin:0 auto;scrollbar-width:none}
+.tabs button{flex:none;border:0;background:none;color:var(--mut);font:600 15px Inter,sans-serif;padding:10px 14px;border-radius:999px;min-height:44px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+button{font:inherit;color:inherit}.scroll{overflow-x:auto}
+.btn{border:0;background:var(--ink);color:var(--bg);font-weight:600;padding:11px 18px;border-radius:10px;min-height:44px;cursor:pointer}
+.btn.ghost{background:none;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}.btn.bad{background:var(--bad);color:#fff}.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,.opt:focus-visible,.chip:focus-visible,.tile:focus-visible{outline:3px solid var(--s2);outline-offset:2px}
+.sm{border:0;background:var(--s3);color:#fff;font-weight:600;font-size:14px;padding:8px 14px;border-radius:8px;min-height:40px;cursor:pointer;flex:none}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}.row.end{justify-content:flex-start}.row.center{justify-content:center}
+.muted{color:var(--mut);font-size:14px}.why{color:var(--mut);max-width:62ch;margin:0 0 8px}
+.eyebrow{font-size:14px;color:var(--mut);margin:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:baseline}.dot.s3{background:var(--s3)}.dot.s2{background:var(--s2)}.dot.s1{background:var(--s1)}
+.card{background:var(--card);border-radius:14px;padding:18px 20px;border:1px solid var(--line)}.card h2{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:760px){.grid2{grid-template-columns:minmax(0,1fr)}}
+/* daily */
+.head{padding-bottom:6px}.strip{display:flex;gap:6px;padding-bottom:6px}
+.day{flex:none;width:56px;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:6px 0 8px;display:grid;justify-items:center;cursor:pointer;position:relative;min-height:66px}
+.day small{font-size:13px;color:var(--mut)}.day b{font:700 20px "Space Grotesk"}.day i{position:absolute;left:8px;right:8px;bottom:5px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--s3) var(--p),var(--line) var(--p))}
+.day.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}.day.on small{color:inherit;opacity:.75}.day.today b::after{content:"";display:block;width:5px;height:5px;margin:0 auto;border-radius:50%;background:var(--s3)}
+.dhead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;margin-top:14px}
+.ring{--p:0;width:118px;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;background:radial-gradient(closest-side,var(--bg) 78%,transparent 79%),conic-gradient(var(--s3) calc(var(--p)*1%),var(--line) 0)}
+.ring b{font-size:30px;line-height:1}.ring small{font-size:13px;color:var(--mut);max-width:70px}
+.tasks,.read,.todo,.wt{list-style:none;padding:0;margin:0}
+.tasks li,.read li,.todo li{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--line)}
+.tasks li:first-child,.read li:first-child,.todo li:first-child{border-top:0}
+.done>.chk span{text-decoration:line-through;color:var(--mut)}
+.chk{display:flex;gap:12px;align-items:flex-start;cursor:pointer;flex:1}.chk input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--s3);flex:none}
+.chk small{display:block;color:var(--mut);font-size:13px}.tog{margin-top:8px;font-size:15px}
+.wt li{padding:4px 0}.wt b{float:right}
+#tdf{margin-top:0}#tdi{flex:1;min-width:160px;font:16px Inter,sans-serif;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);min-height:44px}
+.x{border:0;background:none;font-size:24px;color:var(--mut);width:40px;height:40px;cursor:pointer}
+/* tiles */
+.sech{display:flex;align-items:center;font-size:18px;margin-top:28px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{position:relative;text-align:left;border:0;border-radius:12px;padding:12px 12px 10px;min-height:150px;display:flex;flex-direction:column;cursor:pointer;color:var(--ink)}
+.tile.s3{background:var(--s3t);box-shadow:inset 0 0 0 2px var(--s3)}.tile.s2{background:var(--s2t);box-shadow:inset 0 0 0 2px var(--s2)}.tile.s1{background:var(--s1t);box-shadow:inset 0 0 0 2px var(--s1)}
+.tile .num{font-size:13px;font-weight:600;color:var(--mut)}.tile .sym{font-size:40px;font-weight:700;line-height:1.05}.tile .nm{font-size:14px;font-weight:600;line-height:1.25;flex:1;margin-top:2px}
+.tile .ms{height:5px;border-radius:3px;background:color-mix(in srgb,var(--ink) 12%,transparent);margin-top:8px;overflow:hidden}.tile .ms i{display:block;height:100%;background:var(--ink)}
+.tile .pc{font-size:13px;color:var(--mut);margin-top:4px}
+/* lesson */
+.lesson{max-width:820px}.back{border:0;background:none;color:var(--mut);font-weight:600;padding:10px 0;min-height:44px;cursor:pointer}
+.refs{font-size:14px;color:var(--mut);border-left:3px solid var(--s3);padding-left:12px}
+.blk{border-top:1px solid var(--line);padding:6px 0 10px}.blk h2{display:flex;gap:12px;align-items:baseline}.blk h2 span{font-size:15px;color:var(--mut)}
+.blk ul,.blk ol{padding-left:22px}.blk li{margin:4px 0}
+.key{background:var(--s3t);border-left:4px solid var(--s3);border-radius:8px;padding:10px 14px;margin:10px 0}
+.ex{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:15px}
+/* quiz */
+.quiz{max-width:760px}.prog{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:10px}.prog i{display:block;height:100%;background:var(--s3);transition:width .3s}
+.qq{font-size:19px;line-height:1.5;margin:14px 0 18px;font-weight:500}
+.opts{display:grid;gap:10px}.opt{display:flex;gap:14px;align-items:center;text-align:left;border:1.5px solid var(--line);background:var(--bg);border-radius:12px;padding:12px 16px;min-height:52px;cursor:pointer;font-size:16px}
+.opt span{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--card);font-weight:700;font-size:14px}
+.opt:hover:not(:disabled){border-color:var(--ink)}.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--bg))}.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--bg))}.opt:disabled{cursor:default;color:var(--ink)}
+.fb{margin-top:16px;border-radius:12px;padding:14px 16px}.fb.ok{background:color-mix(in srgb,var(--ok) 13%,var(--bg))}.fb.bad{background:color-mix(in srgb,var(--bad) 12%,var(--bg))}
+.rank .hl{font-size:14px;font-weight:600;color:var(--mut);margin:6px 0}.slots{list-style:decimal;padding-left:26px;margin:0}.slots li{padding:4px 0;min-height:52px}
+.ph{display:inline-block;border:1.5px dashed var(--line);border-radius:10px;padding:8px 14px;color:var(--mut);font-size:14px}
+.bank{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{border:1.5px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 16px;min-height:44px;font-weight:600;font-size:17px;cursor:pointer;flex:none}.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.secres{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}.secres .card p{margin:0;font-weight:600}.secres b{font-size:40px;display:block;line-height:1.1}.secres small{color:var(--mut)}
+.secres .s3{border-top:5px solid var(--s3)}.secres .s2{border-top:5px solid var(--s2)}.secres .s1{border-top:5px solid var(--s1)}
+.miss{border-top:1px solid var(--line);padding:12px 0}.miss .ans{margin:6px 0 0}
+.big3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}@media(max-width:700px){.big3{grid-template-columns:minmax(0,1fr)}}
+.bigb{border:0;border-radius:14px;padding:20px;text-align:left;cursor:pointer;display:grid;gap:6px;min-height:120px;align-content:end}.bigb b{font:700 22px "Space Grotesk"}.bigb span{font-size:14px;opacity:.85}
+.bigb.s0{background:var(--ink);color:var(--bg)}.bigb.s3{background:var(--s3);color:#fff}.bigb.s2{background:var(--s2);color:#fff}
+/* cards */
+.fc{max-width:680px}.flash{width:100%;min-height:280px;border:0;border-radius:18px;padding:28px;display:grid;place-content:center;gap:16px;text-align:center;cursor:pointer;margin:12px 0}
+.flash.s3{background:var(--s3t);box-shadow:inset 0 0 0 2px var(--s3)}.flash.s2{background:var(--s2t);box-shadow:inset 0 0 0 2px var(--s2)}.flash.s1{background:var(--s1t);box-shadow:inset 0 0 0 2px var(--s1)}
+.flash .face{font:700 28px/1.2 "Space Grotesk",sans-serif}.flash .back{font-size:18px;line-height:1.5}.flash small{color:var(--mut)}.flash.flip .face{font-size:18px;color:var(--mut)}
+/* lewis */
+.mols{display:flex;gap:8px;padding-bottom:6px}
+.lab{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;margin-top:12px}@media(max-width:760px){.lab{grid-template-columns:minmax(0,1fr)}}
+.pic{display:grid;place-items:center;min-height:280px;background:var(--bg)}.lew{width:100%;max-width:460px;height:auto}
+.lew .bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round}.lew .dt{fill:var(--s3)}.lew .rad{fill:var(--s2)}
+.lew .el{font:700 20px "Space Grotesk",sans-serif;text-anchor:middle;fill:var(--ink)}.lew .fc{font:700 12px Inter,sans-serif;fill:var(--s2);text-anchor:middle}.lew .fc.big{font-size:16px}.lew .brk{font:300 64px Inter,sans-serif;fill:var(--mut)}
+.reveal{border:2px dashed var(--line);background:none;border-radius:14px;padding:40px 24px;font-weight:600;cursor:pointer;color:var(--mut)}
+/* cheat */
+.cheat{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;margin-bottom:16px}@media(max-width:860px){.cheat{grid-template-columns:minmax(0,1fr)}}
+.trend{width:100%;height:auto}.trend .sb{fill:var(--s3);opacity:.85}.trend .pb{fill:var(--s1);opacity:.85}.trend .db{fill:var(--s2);opacity:.55}
+.trend .ar{stroke:var(--ink);stroke-width:3}.trend .ahd{fill:var(--ink)}.trend .tl{font:600 14px Inter,sans-serif;fill:var(--ink);text-anchor:middle}.trend .tl.st{text-anchor:start}
+.eq{width:100%;border-collapse:collapse}.eq td{padding:8px 4px;border-top:1px solid var(--line);vertical-align:top}.eq tr:first-child td{border-top:0}.eq td:first-child{font-weight:600;white-space:nowrap}
+.rules{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 18px;margin:0}.rules dt{font-weight:700}.rules dd{margin:0}
+@media(max-width:600px){.rules{grid-template-columns:minmax(0,1fr)}.rules dd{margin-bottom:8px}.eq td:first-child{white-space:normal}}
+/* progress */
+.bars{display:grid;gap:8px}.bar{display:grid;grid-template-columns:minmax(0,15em) minmax(0,1fr) 5em;gap:12px;align-items:center;font-size:15px}
+.tr{height:12px;border-radius:6px;background:var(--line);overflow:hidden}.tr i{display:block;height:100%}.tr i.s3{background:var(--s3)}.tr i.s2{background:var(--s2)}.tr i.s1{background:var(--s1)}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.bar small{color:var(--mut)}
+@media(max-width:600px){.bar{grid-template-columns:minmax(0,1fr) 4.5em}.bar .tr{grid-column:1/-1;grid-row:2}.dhead{grid-template-columns:minmax(0,1fr)}.ring{width:96px}.qq{font-size:18px}}
+sup,sub{font-size:.72em;line-height:0}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><div class="top"><div class="brand"><i>6A</i>Chem 6A final prep</div><div id="count"></div></div>
+<nav class="tabs" aria-label="Sections"><button data-v="daily">Daily</button><button data-v="learn">Learn</button><button data-v="practice">Practice</button><button data-v="cards">Flashcards</button><button data-v="lewis">Lewis lab</button><button data-v="cheat">Cheat sheet</button><button data-v="progress">Progress</button></nav></header>
+<main id="main"></main>
+<footer class="band muted">Built from your Lectures 20–24, Midterms 1 and 2, and the syllabus. Progress is saved in this browser on this device. Final: Sat Dec 5, 2026, multiple choice, 2 h 50 min.</footer>
+<script>
+// ===== Section 3: material after Midterm 2 (Lectures 20–24) =====
+// Mini markup: ^{..} or ^2 / ^2+ = superscript, _{..} or _2 = subscript, **b** = bold
+const TOPICS = [
+ {id:'mea',sec:3,sym:'Ma',n:'Many-electron atoms',src:'Topic 1E · Lectures 20–21',
+  lesson:[
+  ['Why hydrogen is the easy case',`Hydrogen has one electron, so nothing gets in its way: every orbital with the same <b>n</b> has the same energy (2s = 2p). Add more electrons and two things change:
+  <ul><li>The nucleus has more protons, so it pulls harder and every orbital drops in energy.</li>
+  <li>Electrons repel each other. Inner electrons sit between the nucleus and outer electrons and block part of the pull. This is called <b>shielding</b>.</li></ul>`],
+  ['Effective nuclear charge (Z<sub>eff</sub>)',`An outer electron doesn't feel the full charge Z of the nucleus. It feels a smaller "net" charge, <b>Z<sub>eff</sub></b>, because the electrons underneath shield it.
+  <div class="key">Z<sub>eff</sub> &lt; Z, always. Example from lecture: in He (Z = 2), each electron feels Z<sub>eff</sub> ≈ 1.3–1.7, not 2.</div>
+  Rough mental model: Z<sub>eff</sub> ≈ (protons) − (core electrons). Across a period you add a proton each step but the core stays the same, so Z<sub>eff</sub> climbs. That one fact drives almost every trend in Topic 1F.`],
+  ['Penetration: why s &lt; p &lt; d &lt; f',`For the same n, an s electron spends some time very close to the nucleus (it <b>penetrates</b> the inner shells), so it's less shielded and lower in energy. p penetrates less, d less still.
+  <div class="key">In a many-electron atom, for a given n: <b>s &lt; p &lt; d &lt; f</b> in energy.</div>
+  That's why 2s fills before 2p, and why 4s fills before 3d.`],
+  ['Writing electron configurations',`Fill orbitals from lowest energy up (<b>Aufbau</b>): 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p…
+  <ul><li><b>Pauli exclusion:</b> max 2 electrons per orbital, with opposite spins. So s holds 2, p holds 6, d holds 10.</li>
+  <li><b>Hund's rule:</b> in a set of equal-energy orbitals (like the three 2p), put electrons in singly with parallel spins before pairing. N (2p<sup>3</sup>) has 3 unpaired electrons.</li></ul>
+  <div class="ex"><b>Worked example, sulfur (16 e⁻):</b> 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>4</sup>. Short form: [Ne]3s<sup>2</sup>3p<sup>4</sup>. Write the previous noble gas in brackets, then the rest.</div>
+  <div class="ex"><b>Selenium (34 e⁻):</b> [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>4</sup>.</div>`],
+  ['The exceptions you must know',`Half-full and full d subshells are extra stable, so one 4s electron moves into 3d:
+  <div class="key">Cr = [Ar]3d<sup>5</sup>4s<sup>1</sup> (not 3d<sup>4</sup>4s<sup>2</sup>)<br>Cu = [Ar]3d<sup>10</sup>4s<sup>1</sup> (not 3d<sup>9</sup>4s<sup>2</sup>)<br>Same pattern for Mo and Ag (the elements under them).</div>`],
+  ['Core vs valence electrons',`<b>Core</b> electrons are inner and unreactive. <b>Valence</b> electrons are outer and do the chemistry.
+  <div class="key">Course definition: valence electrons = all electrons after the noble-gas core, <b>except</b> a full subshell with a lower n.</div>
+  <ul><li>Ga = [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>1</sup>: the 3d<sup>10</sup> is full and has lower n, so it counts as core. 3 valence electrons.</li>
+  <li>Ti = [Ar]3d<sup>2</sup>4s<sup>2</sup>: 3d isn't full, so it's valence. 4 valence electrons.</li>
+  <li>Bi = [Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>3</sup>: 4f and 5d are full, so they're core. 5 valence electrons.</li></ul>`]
+ ]},
+ {id:'rad',sec:3,sym:'Rd',n:'Atomic & ionic radius',src:'Topic 1F · Lectures 21–22',
+  lesson:[
+  ['The two rules',`<div class="key"><b>Down a group: radius gets bigger.</b> Each row adds a new shell (higher n), farther out.<br><b>Across a period (left → right): radius gets smaller.</b> Same core, more protons, so Z<sub>eff</sub> goes up and the cloud gets pulled in.</div>
+  Biggest atoms are bottom-left (Cs, Fr). Smallest are top-right (He, F).`],
+  ['Cations are smaller than their atom',`Na → Na<sup>+</sup>: losing the 3s electron empties the whole n = 3 shell. What's left is the n = 2 shell, much closer in. Also, the same number of protons now pulls on fewer electrons.
+  <div class="key">Cation &lt; parent atom. The higher the positive charge, the smaller it gets (Fe<sup>3+</sup> &lt; Fe<sup>2+</sup>).</div>`],
+  ['Anions are bigger than their atom',`Cl → Cl<sup>−</sup>: same protons, one more electron. The extra electron adds repulsion, so the cloud swells.
+  <div class="key">Anion &gt; parent atom.</div>`],
+  ['Isoelectronic series',`<b>Isoelectronic</b> means same number of electrons. When electrons are equal, more protons means smaller.
+  <div class="ex">All have 10 electrons ([Ne]):<br>N<sup>3−</sup> (7 p) &gt; O<sup>2−</sup> (8 p) &gt; F<sup>−</sup> (9 p) &gt; Na<sup>+</sup> (11 p) &gt; Mg<sup>2+</sup> (12 p) &gt; Al<sup>3+</sup> (13 p)</div>
+  Shortcut: the most negative ion is biggest, the most positive is smallest.`]
+ ]},
+ {id:'ie',sec:3,sym:'Ie',n:'Ionization energy',src:'Topic 1F · Lecture 22',
+  lesson:[
+  ['What it is',`<b>Ionization energy (I)</b> is the minimum energy to pull an electron off a gas-phase atom. It is always positive, because energy always has to be put in.
+  <div class="ex">I<sub>1</sub>: Li(g) → Li<sup>+</sup>(g) + e⁻ &nbsp; 519 kJ/mol<br>I<sub>2</sub>: Li<sup>+</sup>(g) → Li<sup>2+</sup>(g) + e⁻ &nbsp; 7300 kJ/mol</div>`],
+  ['The trend (opposite of radius)',`<div class="key"><b>Up a group: IE increases.</b> The electron is closer and held tighter.<br><b>Across a period: IE increases.</b> Z<sub>eff</sub> goes up.</div>
+  Highest: top-right (He, Ne, F). Lowest: bottom-left (Cs).`],
+  ['Two exceptions (very testable)',`<ul><li><b>Be &gt; B</b> (and Mg &gt; Al): B's outer electron is in 2p, which is higher in energy and more shielded than 2s, so it's easier to remove.</li>
+  <li><b>N &gt; O</b> (and P &gt; S): O has 2p<sup>4</sup>, so one 2p orbital holds a <b>pair</b>. The pair repels, which makes that electron easier to remove. N's 2p<sup>3</sup> has no pairs.</li></ul>
+  <div class="ex">Rank I<sub>1</sub>: Ne &gt; F &gt; N &gt; O (O drops below N).</div>`],
+  ['Successive ionization energies',`Each additional electron is harder to remove (you're pulling from a more positive ion). The <b>huge jump</b> comes when you start removing <b>core</b> electrons.
+  <div class="key">Count the electrons before the big jump = number of valence electrons = the group.</div>
+  <div class="ex">IE: 738, 1451, <b>7733</b>, 10540 kJ/mol. The jump is after IE<sub>2</sub>, so there are 2 valence electrons: group 2. In period 3 that's <b>Mg</b>.<br>K: jump between IE<sub>1</sub> and IE<sub>2</sub>. Ca: jump between IE<sub>2</sub> and IE<sub>3</sub>.</div>`]
+ ]},
+ {id:'ea',sec:3,sym:'Ea',n:'Electron affinity',src:'Topic 1F · Lecture 22',
+  lesson:[
+  ['What it is (watch the sign!)',`<b>Electron affinity (E<sub>ea</sub>)</b> is the energy <b>released</b> when a gas-phase atom gains an electron: X(g) + e⁻ → X<sup>−</sup>(g).
+  <div class="key">In this course: <b>positive E<sub>ea</sub> = energy released</b> (the atom "likes" the electron). <b>Negative E<sub>ea</sub> = energy must be added</b> (the atom doesn't want it).</div>
+  On the homework, the ranking went from "most energy released" to "most energy absorbed".`],
+  ['The trend',`<div class="key">E<sub>ea</sub> gets more positive <b>up a group</b> and <b>left → right</b>, the same direction as IE.</div>
+  Halogens (group 17) have the highest values. One more electron fills their p subshell. Cl (349 kJ/mol) is actually higher than F (328), because F is so small that the added electron is crowded.`],
+  ['Exceptions (different places than for IE!)',`<ul><li><b>Noble gases:</b> negative. The electron would have to start a new shell (higher n), far away and well shielded.</li>
+  <li><b>Group 2 (Be, Mg):</b> low or negative. The new electron has to go into a higher-energy p orbital.</li>
+  <li><b>Group 15 (N):</b> lower than C. N's 2p is half-full, so the new electron has to pair up (repulsion). C can add one to an empty 2p and become half-full.</li></ul>
+  <div class="ex">HW: Br (E<sub>ea</sub> = +325 kJ/mol) &gt; O (+141) &gt; Ne (negative). Most released → most absorbed: <b>Br, O, Ne</b>.</div>`]
+ ]},
+ {id:'ion',sec:3,sym:'Ib',n:'Ionic bonding',src:'Focus 2A · Lecture 23',
+  lesson:[
+  ['What a bond is',`A chemical bond forms when atoms together have <b>lower energy</b> than the separate atoms. In an <b>ionic</b> bond, a metal gives electrons to a nonmetal, and the + and − ions attract.
+  An ionic solid is a regular 3-D stack (crystal) of cations and anions. It is <b>not</b> pairs of ions. Every cation attracts every anion, and like charges repel. The bond is a "global" property of the whole crystal.`],
+  ['Which ions form',`Atoms gain or lose electrons to reach a noble-gas configuration (an <b>octet</b>).
+  <ul><li>s-block metals: lose their s electrons. Na<sup>+</sup>, Mg<sup>2+</sup>, Ca<sup>2+</sup>.</li>
+  <li>Nonmetals: gain electrons to fill p. O<sup>2−</sup>, S<sup>2−</sup>, Cl<sup>−</sup>, N<sup>3−</sup>.</li>
+  <li>Al: loses 3, giving Al<sup>3+</sup>. Heavier p-block metals lose their p and s electrons but keep a full d<sup>10</sup>: Ga<sup>3+</sup> = [Ar]3d<sup>10</sup>.</li></ul>`],
+  ['Transition metal ions: lose 4s first!',`Once 3d is occupied, 3d is lower in energy than 4s. So <b>ns electrons leave first</b>.
+  <div class="ex"><b>Fe</b> = [Ar]3d<sup>6</sup>4s<sup>2</sup><br><b>Fe<sup>2+</sup></b> = [Ar]3d<sup>6</sup> (both 4s gone, not 3d<sup>4</sup>4s<sup>2</sup>)<br><b>Fe<sup>3+</sup></b> = [Ar]3d<sup>5</sup><br>Cu<sup>+</sup> = [Ar]3d<sup>10</sup>, Zn<sup>2+</sup> = [Ar]3d<sup>10</sup></div>`],
+  ['Lewis symbols & formulas',`A Lewis symbol is the element symbol with one dot per valence electron (N has 5 dots, Cl has 7).
+  To build an ionic formula: take away the metal's dots, give them to the nonmetal until it has 8, add atoms until the electrons balance, then write charges in brackets.
+  <div class="ex">Li· + ·Cl (7 dots) → Li<sup>+</sup> [Cl with 8 dots]<sup>−</sup> = <b>LiCl</b><br>Ca has 2 dots and each Cl takes 1, so you need two Cl: <b>CaCl<sub>2</sub></b>. Al<sup>3+</sup> + O<sup>2−</sup> → <b>Al<sub>2</sub>O<sub>3</sub></b>.</div>`],
+  ['Lattice energy',`Making ions costs energy (ionization energy). The ions clumping into a solid releases a lot of energy: the <b>lattice energy</b>. It must be big enough to pay for making the ions. It measures how strong the ionic bonding is.
+  <div class="key">Bigger lattice energy: <b>1) higher charges first</b>, <b>2) then smaller ions</b> (closer together). Based on Coulomb: ∝ (z<sub>1</sub>·z<sub>2</sub>)/distance.</div>
+  <div class="ex">MgO (2+/2−) ≫ NaF &gt; NaCl &gt; KCl &gt; KBr (all 1+/1−, ions getting bigger)</div>`]
+ ]},
+ {id:'lew',sec:3,sym:'Lw',n:'Lewis structures, resonance, formal charge',src:'Focus 2B · Lectures 23–24',
+  lesson:[
+  ['Covalent bonds',`In a covalent bond, two atoms <b>share</b> a pair of electrons, drawn as a line (−). <b>Octet rule:</b> atoms share until each has 8 valence electrons around it (H only needs 2).`],
+  ['The 7-step method',`<ol><li><b>Count</b> total valence electrons (group numbers). Add 1 per negative charge, subtract 1 per positive charge.</li>
+  <li><b>Central atom:</b> the one with the lowest ionization energy, usually the "lonely" atom there's only one of. Never H. F is usually terminal.</li>
+  <li><b>Connect</b> every atom to the central atom with a single bond (2 e⁻ each). Arrange symmetrically.</li>
+  <li><b>Distribute</b> the remaining electrons as lone pairs: fill the outer atoms' octets first, then put any extra on the central atom.</li>
+  <li><b>Count:</b> does everyone have an octet? Does the total match step 1?</li>
+  <li>Central atom short? <b>Move a lone pair</b> from an outer atom into a double (or triple) bond.</li>
+  <li>Electrons left over? Put them on the central atom (it may go past 8, which is OK for period 3+).</li></ol>
+  Practice every step in the <b>Lewis lab</b>.`],
+  ['Resonance',`Sometimes several equally good structures exist that differ only in where the double bond sits (NO<sub>3</sub><sup>−</sup>, O<sub>3</sub>, benzene C<sub>6</sub>H<sub>6</sub>). The real molecule is a <b>blend</b> (resonance hybrid) of all of them, drawn with ↔ between structures.
+  <div class="key">The molecule does not flip between structures. All the bonds are actually identical, with an order in between single and double. Benzene's 6 C–C bonds are all the same.</div>`],
+  ['Formal charge',`Formal charge tells you which arrangement is most likely:
+  <div class="key">FC = V − L − B/2<br>V = valence electrons of the free atom, L = lone-pair electrons on it, B = bonding electrons around it.<br>Shortcut: FC = V − (dots) − (lines).</div>
+  <ul><li>Best structure: formal charges as close to <b>zero</b> as possible.</li>
+  <li>Smaller charges beat bigger ones.</li><li>If you must have a negative FC, put it on the most electronegative atom (O, F, N).</li>
+  <li>The formal charges always add up to the overall charge.</li></ul>
+  <div class="ex">NCO<sup>−</sup>: [N≡C−O]<sup>−</sup> gives N 0, C 0, O −1, which is best (−1 sits on O). [N=C=O]<sup>−</sup> gives N −1. [N−C≡O]<sup>−</sup> gives N −2, O +1 (worst).</div>`]
+ ]},
+ {id:'oct',sec:3,sym:'Oc',n:'Beyond the octet',src:'Focus 2C · Lecture 24',
+  lesson:[
+  ['Who follows the rule',`<div class="key"><b>C, N, O, F always obey the octet rule</b>. They never go past 8, because period 2 has no d orbitals.</div>
+  Others can break it in three ways: odd electrons, expanded octets, incomplete octets.`],
+  ['Odd number of electrons (radicals)',`If the total valence count is odd, someone has to have an unpaired electron. These molecules are <b>radicals</b>. Examples: NO (11 e⁻), NO<sub>2</sub> (17 e⁻), ClO<sub>2</sub>.`],
+  ['Expanded octets (period 3 and below)',`P, S, Cl, Br, I, Xe… have empty d orbitals available, so the central atom can hold <b>more than 8</b> electrons. Molecules like this are called <b>hypervalent</b>.
+  <div class="ex">I<sub>3</sub><sup>−</sup>: 22 e⁻. Central I has 2 bonds + 3 lone pairs = 10 e⁻, FC −1.<br>SF<sub>4</sub>: 34 e⁻. S has 4 bonds + 1 lone pair = 10 e⁻.<br>SF<sub>6</sub>: S has 12 e⁻. XeF<sub>4</sub>: Xe has 4 bonds + 2 lone pairs.<br>ClO<sub>4</sub><sup>−</sup>: the all-single version gives Cl a +3 formal charge. Using 3 Cl=O double bonds drops Cl to 0, which is better, so the expanded octet wins.</div>`],
+  ['Incomplete octets (group 13, Be)',`Boron is happy with only 6 electrons.
+  <div class="ex">BF<sub>3</sub>: three single bonds, B has 6 e⁻, all FC = 0. A B=F double bond would give F a +1 formal charge. F is the most electronegative element, so that's unfavorable. The single-bond structure wins.</div>`]
+ ]},
+];
+
+// ---------- Questions (a = index of correct option in o; ns = don't shuffle options) ----------
+const QS = [
+// mea
+{t:'mea',q:'Why is a 2s orbital lower in energy than a 2p orbital in a many-electron atom?',o:['2s electrons penetrate closer to the nucleus, so they are less shielded','2s orbitals have more nodes, which lowers their energy','2p orbitals can hold more electrons, which raises their energy','They are actually the same energy in every atom'],a:0,ex:'Penetration: an s electron spends time near the nucleus, so it feels a higher Z<sub>eff</sub> and is lower in energy. They are equal only in hydrogen.'},
+{t:'mea',q:'Ground-state electron configuration of sulfur (Z = 16)?',o:['[Ne]3s^2 3p^4','[Ne]3s^2 3p^6','[Ne]3s^1 3p^5','[Ar]3s^2 3p^4'],a:0,ex:'16 − 10 (Ne core) = 6 electrons: 3s holds 2, 3p gets 4.'},
+{t:'mea',q:'Ground-state configuration of chromium (Z = 24)?',o:['[Ar]3d^5 4s^1','[Ar]3d^4 4s^2','[Ar]3d^6','[Ar]4s^2 4p^4'],a:0,ex:'Exception: a half-full d subshell is extra stable, so one 4s electron moves to 3d.'},
+{t:'mea',q:'Ground-state configuration of copper (Z = 29)?',o:['[Ar]3d^10 4s^1','[Ar]3d^9 4s^2','[Ar]3d^10 4s^2','[Ar]3d^8 4s^2 4p^1'],a:0,ex:'Exception: a full d<sup>10</sup> is extra stable.'},
+{t:'mea',q:'How many unpaired electrons does a ground-state nitrogen atom have?',o:['3','1','0','5'],a:0,ex:'2p<sup>3</sup>: Hund\'s rule puts one electron in each of the three 2p orbitals, all with parallel spins.'},
+{t:'mea',q:'Which statement is Hund\'s rule?',o:['In equal-energy orbitals, electrons go in singly with parallel spins before pairing','No two electrons in an atom can have the same four quantum numbers','Electrons fill the lowest-energy orbitals first','An orbital can hold at most two electrons'],a:0,ex:'Option 2 is Pauli exclusion, option 3 is Aufbau, and option 4 is a consequence of Pauli.'},
+{t:'mea',q:'How many valence electrons does Ga ([Ar]3d^10 4s^2 4p^1) have, using the course definition?',o:['3','13','1','2'],a:0,ex:'3d<sup>10</sup> is a closed subshell with a lower n, so it counts as core. Valence = 4s<sup>2</sup>4p<sup>1</sup> = 3.'},
+{t:'mea',q:'How many valence electrons does Ti ([Ar]3d^2 4s^2) have?',o:['4','2','22','0'],a:0,ex:'3d<sup>2</sup> is not a closed subshell, so it counts as valence: 2 + 2 = 4.'},
+{t:'mea',q:'Which statement about effective nuclear charge is correct?',o:['Z<sub>eff</sub> is less than Z because other electrons shield the nucleus','Z<sub>eff</sub> is greater than Z for outer electrons','Z<sub>eff</sub> equals the number of valence electrons','Every electron in an atom feels the same Z<sub>eff</sub>'],a:0,ex:'Shielding by the other electrons always reduces the charge an electron feels.'},
+{t:'mea',q:'Select the correct statements.<br>I. In a many-electron atom, 3s, 3p, and 3d have the same energy.<br>II. An orbital can hold at most two electrons, with opposite spins.<br>III. Selenium is [Ar]3d^10 4s^2 4p^4.',o:['I only','II only','I and III','II and III','I, II, and III'],a:3,ns:1,ex:'I is false (only true for hydrogen). II is Pauli. III: 18 + 10 + 2 + 4 = 34 ✓.'},
+{t:'mea',q:'Which element has the configuration [Kr]4d^10 5s^2 5p^5?',o:['I','Br','Te','Xe'],a:0,ex:'36 + 10 + 2 + 5 = 53, which is iodine.'},
+{t:'mea',q:'Give the element with the ground-state configuration [Ne]3s^2 3p^2.',o:['Si','C','Ge','S'],a:0,ex:'10 + 4 = 14, which is silicon (from your homework).',src:'Homework'},
+{t:'mea',q:'In Br ([Ar]3d^10 4s^2 4p^5), which electrons are core electrons?',o:['[Ar]3d^10 (28 electrons)','[Ar] only (18 electrons)','4s^2 4p^5','All 35 electrons'],a:0,ex:'The noble-gas core plus the closed 3d<sup>10</sup> subshell. That leaves 7 valence electrons, as you\'d expect for group 17.'},
+{t:'mea',q:'For the K vs Br homework question: why do Br\'s valence electrons feel a larger Z<sub>eff</sub>?',o:['Br has more protons but the same noble-gas core as K','Br has fewer core electrons and more protons','Br has more core electrons but fewer protons','Br has more protons and more core electrons'],a:0,ex:'Both are in period 4 with an [Ar] core. Br has 35 protons vs 19.',src:'Homework'},
+// rad
+{t:'rad',type:'rank',q:'Rank by atomic radius.',items:['Na','Mg','Al','Si','P'],hi:'Largest radius',lo:'Smallest radius',ex:'Across period 3, Z<sub>eff</sub> rises, so the cloud is pulled in.'},
+{t:'rad',type:'rank',q:'Rank by atomic radius.',items:['I','Br','Cl','F'],hi:'Largest radius',lo:'Smallest radius',ex:'Down a group, each row adds a shell.'},
+{t:'rad',type:'rank',q:'Rank by atomic radius.',items:['Cs','Rb','K','Na','Li'],hi:'Largest radius',lo:'Smallest radius',ex:'Group 1: bigger going down.',src:'Homework'},
+{t:'rad',type:'rank',q:'Rank these isoelectronic ions by radius.',items:['N^3−','O^2−','F^−','Na^+','Mg^2+'],hi:'Largest radius',lo:'Smallest radius',ex:'All have 10 e⁻. More protons pull them in tighter.',src:'Homework'},
+{t:'rad',type:'rank',q:'Rank by radius.',items:['S^2−','Cl^−','K^+','Ca^2+'],hi:'Largest radius',lo:'Smallest radius',ex:'Isoelectronic with Ar (18 e⁻): 16, 17, 19, 20 protons.'},
+{t:'rad',q:'Which is larger, Na or Na^+?',o:['Na, because losing the 3s electron empties the n = 3 shell','Na^+, because it has a positive charge','They are the same size','Na^+, because the remaining electrons repel more'],a:0,ex:'Cations are always smaller than their parent atoms.'},
+{t:'rad',q:'Which is larger, Cl or Cl^−?',o:['Cl^−, because the extra electron increases repulsion with the same number of protons','Cl, because it is neutral','They are the same','Cl, because Cl^− has a higher Z<sub>eff</sub>'],a:0,ex:'Anions are bigger than their parent atoms.'},
+{t:'rad',q:'Why does atomic radius decrease from left to right across a period?',o:['Z<sub>eff</sub> increases (more protons, same core electrons)','More electron shells are added','Atoms lose electrons going right','Electron repulsion increases'],a:0,ex:'Same n, but a stronger effective pull.'},
+{t:'rad',q:'Which pair is isoelectronic?',o:['S^2− and Ar','Na^+ and K^+','O and F^−','Cl and Ar'],a:0,ex:'S<sup>2−</sup>: 16 + 2 = 18 e⁻, and Ar has 18 e⁻.'},
+{t:'rad',q:'Which has the largest atomic radius?',o:['Rb','Sr','Br','Kr'],a:0,ex:'All in period 5 except Br. Rb is the furthest left in the lowest row.'},
+// ie
+{t:'ie',type:'rank',q:'Rank by first ionization energy.',items:['Li','Na','K','Rb'],hi:'Highest IE',lo:'Lowest IE',ex:'Going down, the outer electron is farther away, so it\'s easier to remove.',src:'Homework'},
+{t:'ie',type:'rank',q:'Rank by first ionization energy.',items:['Ne','F','N','O'],hi:'Highest IE',lo:'Lowest IE',ex:'The general trend says O > N, but O\'s paired 2p electron is easier to remove, so N > O.'},
+{t:'ie',q:'Nitrogen has a higher first ionization energy than oxygen. Why?',o:['O has a paired electron in one 2p orbital, and the repulsion makes it easier to remove','O has fewer protons than N','O\'s outer electron is in a higher shell','N has a larger atomic radius'],a:0,ex:'N is 2p<sup>3</sup> (all unpaired). O is 2p<sup>4</sup> (one pair).'},
+{t:'ie',q:'Beryllium has a higher first ionization energy than boron. Why?',o:['B\'s outer electron is in 2p, which is higher in energy and more shielded than 2s','B has fewer protons','Be\'s electron is paired','B is smaller than Be'],a:0,ex:'2p electrons penetrate less, so they are easier to remove.'},
+{t:'ie',q:'Successive IEs (kJ/mol) of a period-3 element: 578, 1817, 2745, 11577. Which element is it?',o:['Al','Mg','Si','Na'],a:0,ex:'The big jump is after IE<sub>3</sub>, so it has 3 valence electrons: group 13 = Al.'},
+{t:'ie',q:'Successive IEs: 737.7, 1450.7, 7732.7, 10542.5 kJ/mol. Which period-3 element is it?',o:['Mg','Al','Na','Si'],a:0,ex:'The jump is after IE<sub>2</sub>, so group 2.',src:'Homework'},
+{t:'ie',q:'Where is the largest jump in successive ionization energies for K?',o:['Between IE1 and IE2','Between IE2 and IE3','Between IE3 and IE4','Between IE4 and IE5'],a:0,ex:'K has 1 valence electron, so the 2nd electron comes from the core.',src:'Homework'},
+{t:'ie',q:'Which atom has the highest first ionization energy?',o:['He','Ne','F','Li'],a:0,ex:'Top-right of the table: tiny, with a full shell.'},
+{t:'ie',q:'Which value is the largest?',o:['IE2 of Na','IE2 of Mg','IE1 of Mg','IE1 of Na'],a:0,ex:'Na\'s second electron is a core (2p) electron: about 4560 kJ/mol. Mg\'s IE<sub>2</sub> is still a valence electron (about 1450).'},
+{t:'ie',q:'Select the correct statements.<br>I. First IE generally decreases down a group.<br>II. IE2 is always greater than IE1 for the same element.<br>III. IE1 of O is greater than IE1 of N.',o:['I only','I and II','II and III','I and III','I, II, and III'],a:1,ns:1,ex:'III is the famous exception: N > O.'},
+{t:'ie',q:'Ionization energy is defined as the minimum energy needed to…',o:['remove an electron from a gas-phase atom','add an electron to a gas-phase atom','break a bond between two atoms','remove an electron from a solid'],a:0,ex:'"Gas phase" means an isolated atom.'},
+// ea
+{t:'ea',type:'rank',q:'Arrange by electron affinity.',items:['Br','O','Ne'],hi:'Most energy released',lo:'Most energy absorbed',ex:'Halogens release the most. O releases less. Ne absorbs energy (the electron would start a new shell).',src:'Homework (missed)'},
+{t:'ea',q:'Which atom has the most positive electron affinity (most energy released)?',o:['Cl','F','O','Na'],a:0,ex:'Cl (349 kJ/mol) beats F (328). F is so small that the added electron is crowded.'},
+{t:'ea',q:'Why is F\'s electron affinity smaller than Cl\'s?',o:['F is so small that the added electron is crowded and repelled by the others','F has fewer protons than Cl','F\'s added electron goes into a new shell','F is a noble gas'],a:0,ex:'Small and crowded, so more repulsion.'},
+{t:'ea',q:'Why does N have a lower electron affinity than C?',o:['N\'s 2p is half-full, so the added electron must pair (repulsion); C adds to an empty 2p','N has fewer protons than C','N\'s added electron goes into 3s','C is more electronegative'],a:0,ex:'This is the group-15 dip.'},
+{t:'ea',q:'Why do noble gases have negative electron affinities (energy absorbed)?',o:['An added electron would have to enter a new, higher shell, far from the nucleus and well shielded','They have too many protons','Their p orbitals are half-full','They are too small'],a:0,ex:'The next available orbital has a higher n.'},
+{t:'ea',q:'In this course\'s convention, a positive electron affinity means…',o:['energy is released when the atom gains an electron','energy must be added to attach an electron','the atom loses an electron','the atom has a positive charge'],a:0,ex:'Positive E<sub>ea</sub> = released. Watch this sign. It\'s the opposite of ΔH.'},
+{t:'ea',q:'Which group generally has the most positive electron affinities?',o:['Group 17 (halogens)','Group 18 (noble gases)','Group 1 (alkali metals)','Group 2'],a:0,ex:'One more electron completes their p subshell.'},
+{t:'ea',type:'rank',q:'Arrange by electron affinity.',items:['Cl','S','P','Mg'],hi:'Most energy released',lo:'Least / absorbed',ex:'Cl 349, S 200, P 72 (half-full p dip), Mg below zero (the electron must go into 3p).'},
+{t:'ea',q:'Select the correct statements.<br>I. Electron affinity generally becomes more positive from left to right.<br>II. The exceptions for EA occur at the same groups as for IE.<br>III. Be has a lower electron affinity than Li.',o:['I only','II only','I and III','II and III','I, II, and III'],a:2,ns:1,ex:'II is false: the IE exceptions are at groups 13/16, the EA exceptions at groups 2/15. III is true: Be\'s added electron has to go into 2p.'},
+// ion
+{t:'ion',q:'Electron configuration of Fe^2+?',o:['[Ar]3d^6','[Ar]3d^4 4s^2','[Ar]3d^5 4s^1','[Ar]3d^6 4s^2'],a:0,ex:'Fe = [Ar]3d<sup>6</sup>4s<sup>2</sup>. The two 4s electrons leave first.'},
+{t:'ion',q:'Electron configuration of Fe^3+?',o:['[Ar]3d^5','[Ar]3d^3 4s^2','[Ar]3d^4 4s^1','[Ar]3d^6'],a:0,ex:'Lose 4s<sup>2</sup>, then one 3d electron.'},
+{t:'ion',q:'Electron configuration of Cu^+?',o:['[Ar]3d^10','[Ar]3d^9 4s^1','[Ar]3d^8 4s^2','[Ar]3d^10 4s^1'],a:0,ex:'Cu = [Ar]3d<sup>10</sup>4s<sup>1</sup>. Remove the 4s electron.'},
+{t:'ion',q:'Electron configuration of Zn^2+?',o:['[Ar]3d^10','[Ar]3d^8 4s^2','[Ar]4s^2 3d^8','[Ar]3d^9 4s^1'],a:0,ex:'Remove 4s<sup>2</sup>.'},
+{t:'ion',q:'Using Lewis symbols, what is the formula of the compound of calcium and chlorine?',o:['CaCl_2','CaCl','Ca_2Cl','CaCl_3'],a:0,ex:'Ca gives away 2 electrons and each Cl takes 1.'},
+{t:'ion',q:'Formula of the ionic compound formed by aluminum and oxygen?',o:['Al_2O_3','AlO','Al_3O_2','AlO_3'],a:0,ex:'Al<sup>3+</sup> and O<sup>2−</sup>: 2 × (+3) = 3 × (−2).'},
+{t:'ion',q:'Which compound has the largest lattice energy?',o:['MgO','NaCl','KBr','NaF'],a:0,ex:'Look at charge first: 2+/2− beats any 1+/1−.'},
+{t:'ion',type:'rank',q:'Rank by lattice energy.',items:['MgO','NaF','NaCl','KCl'],hi:'Largest lattice energy',lo:'Smallest',ex:'Charge first (MgO). Then, for the same charges, smaller ions are closer together and attract more strongly.'},
+{t:'ion',q:'Which has the larger lattice energy, LiF or LiI?',o:['LiF, because F^− is smaller so the ions sit closer','LiI, because I^− is bigger','They are equal (same charges)','LiI, because I is more electronegative'],a:0,ex:'Same charges, so compare size: smaller means stronger attraction.'},
+{t:'ion',q:'Which statement about an ionic solid is correct?',o:['Each cation interacts with all the anions (and repels other cations) throughout the crystal','Each cation is bonded to exactly one anion','Ionic solids are made of discrete molecules','Anions attract other anions'],a:0,ex:'Ionic bonding is a "global" property of the crystal.'},
+{t:'ion',q:'Lattice energy is the energy…',o:['released when gaseous ions come together to form the ionic solid','needed to remove an electron from the metal','released when an atom gains an electron','needed to melt the solid'],a:0,ex:'It has to be big enough to pay for the ionization energy of making the ions.'},
+{t:'ion',q:'What ion does gallium form, and what is its configuration?',o:['Ga^3+, [Ar]3d^10','Ga^3+, [Ar]3d^7 4s^2','Ga^+, [Ar]3d^10 4s^1','Ga^3−, [Kr]'],a:0,ex:'It loses 4p<sup>1</sup> and 4s<sup>2</sup> and keeps the full 3d<sup>10</sup>.'},
+{t:'ion',q:'How many dots are in the Lewis symbol for nitrogen?',o:['5','3','7','2'],a:0,ex:'Group 15: 5 valence electrons.'},
+// lew
+{t:'lew',q:'Total valence electrons in NO_3^−?',o:['24','23','22','26'],a:0,ex:'5 + 3(6) + 1 (for the − charge) = 24.'},
+{t:'lew',q:'Total valence electrons in SO_4^2−?',o:['32','30','34','24'],a:0,ex:'6 + 4(6) + 2 = 32.'},
+{t:'lew',q:'Total valence electrons in NH_4^+?',o:['8','9','10','6'],a:0,ex:'5 + 4(1) − 1 = 8.'},
+{t:'lew',q:'In SO_2, which atom is central?',o:['S, because it has the lowest ionization energy and there\'s only one','O','Either O','Neither (it\'s a chain O–O–S)'],a:0,ex:'The "lonely" atom with the lower IE goes in the middle.'},
+{t:'lew',q:'Correct Lewis structure of CO_2?',o:['O=C=O with 2 lone pairs on each O','O–C–O with 3 lone pairs on each O','C=O=O','O≡C–O with 1 lone pair on C'],a:0,ex:'16 e⁻. Two double bonds give every atom an octet and all formal charges are 0.'},
+{t:'lew',q:'Correct Lewis structure of HCN?',o:['H–C≡N with one lone pair on N','H–N≡C','H=C=N','H–C=N with two lone pairs on N'],a:0,ex:'10 e⁻. A triple bond gives C and N their octets. Option 4 leaves C with only 6 electrons.'},
+{t:'lew',q:'Formal charge formula?',o:['FC = V − L − B/2','FC = V + L − B','FC = L − V','FC = V − B'],a:0,ex:'V = valence electrons, L = lone-pair electrons, B = bonding electrons. Shortcut: V − dots − lines.'},
+{t:'lew',q:'Formal charge on N in NH_4^+?',o:['+1','0','−1','+4'],a:0,ex:'5 − 0 − 8/2 = +1.'},
+{t:'lew',q:'In ozone (O=O–O), what is the formal charge on the central O?',o:['+1','0','−1','+2'],a:0,ex:'Central O: 6 − 2 − 3 = +1. The single-bonded O: 6 − 6 − 1 = −1. The double-bonded O: 0.'},
+{t:'lew',q:'How many resonance structures does NO_3^− have?',o:['3','1','2','4'],a:0,ex:'The double bond can sit on any of the 3 O atoms.'},
+{t:'lew',q:'Which statement about resonance is correct?',o:['The real molecule is a blend of the structures, and all equivalent bonds are identical','The molecule flips rapidly between structures','Only one structure actually exists','Resonance structures have different atom arrangements'],a:0,ex:'Resonance structures differ only in where the electrons are, never in where the atoms are.'},
+{t:'lew',q:'In benzene (C_6H_6), the C–C bonds are…',o:['all identical, in between a single and a double bond','alternating single and double','all double bonds','all single bonds'],a:0,ex:'It\'s a resonance hybrid of two structures.'},
+{t:'lew',q:'Which is the best Lewis structure for the cyanate ion, NCO^−?',o:['[N≡C–O]^− (FC: N 0, C 0, O −1)','[N=C=O]^− (FC: N −1, C 0, O 0)','[N–C≡O]^− (FC: N −2, C 0, O +1)','[C=N=O]^−'],a:0,ex:'Keep formal charges small, and put the negative charge on the most electronegative atom (O).'},
+{t:'lew',q:'Correct Lewis structure of formaldehyde, CH_2O?',o:['C central, C=O double bond, 2 lone pairs on O','O central','C–O single bond, 3 lone pairs on O','C≡O triple bond'],a:0,ex:'12 e⁻. The double bond gives C its octet.'},
+{t:'lew',q:'Select the correct statements about formal charge.<br>I. Lone-pair electrons count fully toward the atom.<br>II. Bonding electrons are split equally between the two atoms.<br>III. The formal charges add up to the overall charge of the ion.',o:['I only','I and II','II and III','I and III','I, II, and III'],a:4,ns:1,ex:'All three are true. Formal charge assumes perfectly equal sharing.'},
+// oct
+{t:'oct',q:'Which atom can have an expanded octet?',o:['S','C','N','O'],a:0,ex:'Period 3 and below have empty d orbitals available. C, N, O, F never exceed 8.'},
+{t:'oct',q:'In I_3^−, the central I has…',o:['2 bonds and 3 lone pairs (10 e⁻), FC −1','2 bonds and 2 lone pairs, FC 0','1 bond and 3 lone pairs','2 double bonds'],a:0,ex:'22 e⁻ total. The leftover pairs go on the central atom.'},
+{t:'oct',q:'Best Lewis structure of BF_3?',o:['Three B–F single bonds; B has 6 e⁻; all formal charges 0','One B=F double bond so B has an octet','B has a lone pair','Three B=F double bonds'],a:0,ex:'The double-bond version gives F a +1 formal charge. Boron is fine with an incomplete octet.'},
+{t:'oct',q:'Which molecule is a radical (odd number of electrons)?',o:['NO','CO','N_2','CN^−'],a:0,ex:'5 + 6 = 11 e⁻.'},
+{t:'oct',q:'Why can phosphorus and sulfur have more than 8 electrons around them?',o:['They have empty d orbitals available (period 3+)','They have more protons than oxygen','They are metals','They have fewer electrons'],a:0,ex:'Period-2 atoms have no 2d orbitals.'},
+{t:'oct',q:'How many electrons surround S in SF_6?',o:['12','8','6','10'],a:0,ex:'6 bonds × 2 = 12.'},
+{t:'oct',q:'In SF_4 (34 valence e⁻), the S atom has…',o:['4 bonds and 1 lone pair (10 e⁻)','4 bonds and 0 lone pairs','4 bonds and 2 lone pairs','2 double bonds and 2 single bonds'],a:0,ex:'4 F × 8 = 32 e⁻ on the F atoms and bonds, which leaves 2 e⁻ as a lone pair on S.'},
+{t:'oct',q:'For ClO_4^−, which structure minimizes formal charges?',o:['Three Cl=O and one Cl–O (Cl FC = 0)','Four Cl–O single bonds (Cl FC = +3)','Four Cl=O double bonds','Two Cl=O and two Cl–O (Cl FC = +1)'],a:0,ex:'The expanded octet on Cl is allowed and it brings Cl\'s formal charge to 0. The −1 sits on the single-bonded O.'},
+{t:'oct',q:'Which atom always obeys the octet rule?',o:['N','P','S','Xe'],a:0,ex:'C, N, O, F: no d orbitals.'},
+{t:'oct',q:'Total valence electrons in XeF_4, and the number of lone pairs on Xe?',o:['36; 2','36; 1','34; 2','32; 0'],a:0,ex:'8 + 4(7) = 36. The F atoms use 32, which leaves 4 e⁻ = 2 lone pairs on Xe.'},
+{t:'oct',q:'Select the correct statements.<br>I. C, N, O, and F do not exceed an octet.<br>II. Boron often has an incomplete octet.<br>III. A molecule with an odd number of electrons must have an atom without a complete octet.',o:['I only','I and II','II and III','I and III','I, II, and III'],a:4,ns:1,ex:'All three are true.'},
+];
+
+const CARDS = [
+['mea','Z<sub>eff</sub>','The net nuclear charge an electron actually feels. Always &lt; Z because of shielding. Increases across a period.'],
+['mea','Shielding','Other electrons (mostly inner ones) block part of the nucleus\'s pull.'],
+['mea','Penetration order (same n)','s &lt; p &lt; d &lt; f in energy. s gets closest to the nucleus.'],
+['mea','Aufbau order','1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p'],
+['mea','Pauli exclusion','Max 2 electrons per orbital, with opposite spins.'],
+['mea','Hund\'s rule','Fill equal-energy orbitals singly with parallel spins before pairing.'],
+['mea','Cr and Cu','Cr [Ar]3d^5 4s^1, Cu [Ar]3d^10 4s^1 (also Mo, Ag). A half-full or full d is extra stable.'],
+['mea','Valence electrons (course def.)','Electrons after the noble-gas core, except full subshells with a lower n (e.g. 3d^10 in Ga is core).'],
+['rad','Atomic radius trend','Bigger down a group (new shells). Smaller left → right (Z<sub>eff</sub> ↑).'],
+['rad','Cation vs atom','Cation is smaller (it often loses a whole shell).'],
+['rad','Anion vs atom','Anion is bigger (more e⁻–e⁻ repulsion).'],
+['rad','Isoelectronic','Same number of electrons. More protons = smaller. N^3− &gt; O^2− &gt; F^− &gt; Na^+ &gt; Mg^2+ &gt; Al^3+'],
+['ie','Ionization energy','Energy to remove an electron from a gas-phase atom. Always positive.'],
+['ie','IE trend','Increases up a group and left → right (the opposite of radius).'],
+['ie','Be &gt; B exception','B\'s electron is in 2p (higher energy, more shielded than 2s).'],
+['ie','N &gt; O exception','O\'s 4th 2p electron is paired, and the repulsion makes it easier to remove.'],
+['ie','Successive IE jump','A big jump means you\'ve started removing core electrons. Electrons before the jump = group number.'],
+['ea','Electron affinity (sign)','Course convention: positive E<sub>ea</sub> = energy released on gaining an e⁻.'],
+['ea','EA trend','More positive up a group and left → right. Halogens are highest (Cl &gt; F).'],
+['ea','EA exceptions','Noble gases (negative), group 2 (low), group 15 (N &lt; C).'],
+['ion','Lattice energy','Energy released when gas ions form the solid. Higher charges first, then smaller ions → larger.'],
+['ion','Transition metal cations','Lose ns before (n−1)d. Fe^2+ = [Ar]3d^6, Fe^3+ = [Ar]3d^5.'],
+['ion','Ionic bonding is "global"','Every cation attracts every anion in the crystal. There are no discrete pairs.'],
+['ion','Lewis symbol','Element symbol + one dot per valence electron.'],
+['lew','Octet rule','Atoms share electrons until each has 8 (H has 2).'],
+['lew','Choosing the central atom','Lowest ionization energy, usually the one-of-a-kind atom. Never H.'],
+['lew','Formal charge','FC = V − L − B/2 = valence − dots − lines.'],
+['lew','Best structure','Formal charges closest to 0. Put a negative FC on the most electronegative atom.'],
+['lew','Resonance','A blend of structures that differ only in electron placement. All equivalent bonds are identical.'],
+['oct','Strict octet atoms','C, N, O, F: never more than 8.'],
+['oct','Expanded octet','Period 3+ central atoms (S, P, Cl, I, Xe) can exceed 8 using d orbitals. E.g. SF_4, SF_6, I_3^−, XeF_4.'],
+['oct','Incomplete octet','B (and Be): BF_3 has only 6 e⁻ on B, with all FC = 0.'],
+['oct','Radical','Odd number of electrons: NO, NO_2, ClO_2.'],
+];
+
+// ===== Section 2 (Midterm 2) and Section 1 (Midterm 1) =====
+TOPICS.push(
+ {id:'yld',sec:2,sym:'Ly',n:'Limiting reagent & yield',src:'Fundamentals M',
+  lesson:[
+  ['The recipe',`A balanced equation is a recipe in <b>moles</b>. Always: grams → moles → use coefficients → moles → grams.`],
+  ['Limiting reagent',`The reactant that runs out first. For each reactant, compute how much product it <i>could</i> make. The <b>smallest</b> amount wins, and that reactant is limiting.
+  <div class="ex">N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub>, with 28.0 g N<sub>2</sub> (1.00 mol) and 9.0 g H<sub>2</sub> (4.46 mol).<br>N<sub>2</sub> could make 2.00 mol NH<sub>3</sub>. H<sub>2</sub> could make 4.46 × 2/3 = 2.98 mol. <b>N<sub>2</sub> is limiting</b>, giving 2.00 mol × 17.03 = 34.1 g NH<sub>3</sub>.<br>H<sub>2</sub> used: 3.00 mol, so 1.46 mol (2.95 g) is left over in excess.</div>`],
+  ['Percent yield',`<div class="key">% yield = actual ÷ theoretical × 100</div>
+  Theoretical yield = the amount the limiting reagent allows. Actual yield = what you really got.`]
+ ]},
+ {id:'lit',sec:2,sym:'Em',n:'Light & atomic spectra',src:'Focus 1A',
+  lesson:[
+  ['What light is',`Electromagnetic radiation: oscillating electric and magnetic fields, all moving at <b>c = 3.00×10<sup>8</sup> m/s</b> in vacuum, whatever the frequency.
+  <div class="key">c = λν &nbsp;&nbsp; E = hν = hc/λ</div>
+  Short wavelength = high frequency = high energy. Amplitude is brightness (intensity), not energy per photon.
+  <div class="ex">Spectrum, low → high energy: radio, microwave, IR, <b>visible (700 nm red → 400 nm violet)</b>, UV, X-ray, gamma.</div>`],
+  ['Hydrogen spectrum',`An H atom only has certain energy levels, so it only absorbs or emits certain wavelengths (lines). <b>Emission</b>: the electron drops from a high n to a low n and gives off a photon. It does <b>not</b> leave the atom.
+  <div class="key">Rydberg: ν = R(1/n<sub>1</sub><sup>2</sup> − 1/n<sub>2</sub><sup>2</sup>), R = 3.29×10<sup>15</sup> Hz, then λ = c/ν.</div>
+  <div class="ex">n = 5 → 1: ν = 3.29×10<sup>15</sup>(1 − 1/25) = 3.16×10<sup>15</sup> Hz, so λ = 95.0 nm (UV).</div>
+  Energy levels get <b>closer together</b> as n increases.`],
+  ['Per-mole energy',`E for one photon = hc/λ. For a mole of photons, multiply by N<sub>A</sub>.
+  <div class="ex">λ = 101.6 nm: E = (6.626×10<sup>−34</sup>)(3.00×10<sup>8</sup>)/(101.6×10<sup>−9</sup>) = 1.96×10<sup>−18</sup> J. × 6.022×10<sup>23</sup> = 1.18 MJ.</div>`]
+ ]},
+ {id:'qua',sec:2,sym:'Qp',n:'Photons, matter waves, uncertainty',src:'Focus 1B',
+  lesson:[
+  ['Photoelectric effect',`Light comes in packets (photons) with E = hν. An electron is ejected only if <b>one photon</b> has at least the threshold energy.
+  <div class="key">Below threshold: no electrons, however bright the light. Above threshold: brighter light gives <b>more</b> electrons, not faster ones. Higher frequency gives faster ones.</div>
+  <div class="ex">Threshold 3.89×10<sup>−19</sup> J corresponds to λ = hc/E = 511 nm (green). Green and anything shorter (blue, indigo, violet) works.</div>`],
+  ['Matter waves (de Broglie)',`Particles act like waves too: <div class="key">λ = h/(mv)</div>Heavy or fast objects have a tiny λ, which is why a baseball doesn't diffract.
+  <div class="ex">Neutron with λ = 6.54 µm: v = h/(mλ) = 6.626×10<sup>−34</sup>/(1.67×10<sup>−27</sup> × 6.54×10<sup>−6</sup>) = 0.0607 m/s.</div>`],
+  ['Uncertainty principle',`You can't know both position and momentum exactly at the same time.
+  <div class="key">Δp·Δx ≥ h/(4π), with Δp = mΔv</div>
+  <div class="ex">Electron, Δv = 1×10<sup>4</sup> m/s: Δx ≥ 6.626×10<sup>−34</sup>/(4π × 9.109×10<sup>−31</sup> × 1×10<sup>4</sup>) = 5.8 nm.</div>`]
+ ]},
+ {id:'orb',sec:2,sym:'Or',n:'Orbitals & quantum numbers',src:'Focus 1C–1D',
+  lesson:[
+  ['Quantum numbers',`<div class="key">n = 1, 2, 3… (shell, size/energy)<br>l = 0 … n−1 (shape: 0 = s, 1 = p, 2 = d, 3 = f)<br>m<sub>l</sub> = −l … +l (orientation, so 2l+1 orbitals)<br>m<sub>s</sub> = +½ or −½ (spin)</div>
+  A shell n has n<sup>2</sup> orbitals and 2n<sup>2</sup> electrons. A p subshell has 3 orbitals (6 e⁻), d has 5 (10 e⁻).`],
+  ['Nodes',`<div class="key">Radial nodes = n − l − 1 &nbsp;&nbsp; Angular nodes = l</div>
+  <div class="ex">3p: radial 3−1−1 = 1, angular 1. 2s: 1 radial node. 3d: 0 radial, 2 angular.</div>
+  On a radial distribution plot, the number of humps = radial nodes + 1.`],
+  ['Hydrogen energy levels',`<div class="key">E<sub>n</sub> = −hR/n<sup>2</sup> = −2.18×10<sup>−18</sup> J / n<sup>2</sup></div>
+  In H only, every orbital with the same n has the same energy (degenerate): 2s = 2p.
+  <div class="ex">E = −5.45×10<sup>−19</sup> J: 2.18×10<sup>−18</sup>/5.45×10<sup>−19</sup> = 4 = n<sup>2</sup>, so n = 2. The electron is in the 2s, 2p<sub>x</sub>, 2p<sub>y</sub>, <b>or</b> 2p<sub>z</sub> orbital (only one at a time!).</div>`],
+  ['What an orbital is',`An orbital is a 3-D standing wave. Its shape shows where the electron is likely to be found. The electron doesn't "hop" between lobes. It's a single wave spread over all of them.`]
+ ]},
+ {id:'unt',sec:1,sym:'Un',n:'Units, sig figs, conversions',src:'Fundamentals A',
+  lesson:[
+  ['Prefixes',`<div class="key">G 10<sup>9</sup> · M 10<sup>6</sup> · k 10<sup>3</sup> · c 10<sup>−2</sup> · m 10<sup>−3</sup> · µ 10<sup>−6</sup> · n 10<sup>−9</sup> · p 10<sup>−12</sup></div>
+  To convert, go through the base unit: 92,300,000 µg × 10<sup>−6</sup> g/µg = 92.3 g.`],
+  ['Significant figures',`Leading zeros don't count (0.00450 has 3). Trailing zeros after a decimal do count. ×/÷: keep the fewest sig figs. +/−: keep the fewest decimal places. A measurement is read to one estimated digit past the smallest marking.`],
+  ['Accuracy vs precision',`Accuracy = how close to the true value. Precision = how close repeated measurements are to each other.`]
+ ]},
+ {id:'mol',sec:1,sym:'Mo',n:'Moles, formulas, mass %',src:'Fundamentals E–F, L',
+  lesson:[
+  ['Mole conversions',`<div class="key">moles = mass ÷ molar mass &nbsp;&nbsp; particles = moles × 6.022×10<sup>23</sup></div>
+  Atoms inside a formula: multiply by the subscript. 0.68 mol Na<sub>2</sub>SO<sub>3</sub> × 2 Na × N<sub>A</sub> = 8.2×10<sup>23</sup> Na atoms.`],
+  ['Empirical formula from mass %',`Pretend you have 100 g, so % becomes grams. Divide each by its molar mass, then divide by the smallest.
+  <div class="ex">37.49% C, 12.58% H, 49.93% O → 3.12 : 12.48 : 3.12 = 1 : 4 : 1, so CH<sub>4</sub>O.</div>`],
+  ['Isotope abundance',`Average mass = Σ (fraction × isotope mass). With two isotopes, let x = fraction of one and solve.`]
+ ]},
+ {id:'atm',sec:1,sym:'At',n:'Atoms, isotopes, compounds & names',src:'Fundamentals B–D',
+  lesson:[
+  ['The atom',`A tiny dense nucleus (protons + neutrons, each about 1.67×10<sup>−27</sup> kg) holds almost all the mass. Electrons are about 1/1836 of a proton's mass and fill the space around it. Mass number = protons + neutrons. Isotopes have the same protons and different neutrons.`],
+  ['Ionic vs molecular',`Ionic compounds = metal + nonmetal (or polyatomic ions). They form a lattice with no discrete molecules and are overall neutral. Molecular compounds = nonmetals sharing electrons, e.g. CH<sub>4</sub>, O<sub>2</sub>. Group 1 → +1, group 2 → +2, group 17 → −1.`],
+  ['Names & polyatomic ions',`Monatomic anions end in -ide (chloride). Know these: nitrate NO<sub>3</sub><sup>−</sup>, sulfate SO<sub>4</sub><sup>2−</sup>, sulfite SO<sub>3</sub><sup>2−</sup>, phosphate PO<sub>4</sub><sup>3−</sup>, carbonate CO<sub>3</sub><sup>2−</sup>, chromate CrO<sub>4</sub><sup>2−</sup>, permanganate MnO<sub>4</sub><sup>−</sup>, ammonium NH<sub>4</sub><sup>+</sup>, hydroxide OH<sup>−</sup>, perchlorate ClO<sub>4</sub><sup>−</sup>, acetate CH<sub>3</sub>COO<sup>−</sup>.`]
+ ]},
+ {id:'sol',sec:1,sym:'Sn',n:'Solutions, reactions, balancing',src:'Fundamentals G–I',
+  lesson:[
+  ['Molarity & dilution',`<div class="key">M = mol/L &nbsp;&nbsp; M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub> &nbsp;&nbsp; mM × mL = µmol</div>
+  Watch ion counts: 1.80 M K<sub>3</sub>PO<sub>4</sub> is 5.40 M in K<sup>+</sup>.`],
+  ['Precipitation',`Always soluble: group 1, NH<sub>4</sub><sup>+</sup>, nitrates, acetates. Halides are soluble except with Ag<sup>+</sup>, Pb<sup>2+</sup>, Hg<sub>2</sub><sup>2+</sup>. Sulfates are soluble except Ba, Pb, Ca, Sr. Carbonates, phosphates, hydroxides, and sulfides are mostly insoluble (except group 1 and NH<sub>4</sub><sup>+</sup>).`],
+  ['Balancing',`Balance atoms that appear only once first, then O and H, and save lone elements (like O<sub>2</sub>) for last. C<sub>3</sub>H<sub>8</sub> + 5O<sub>2</sub> → 3CO<sub>2</sub> + 4H<sub>2</sub>O.`]
+ ]}
+);
+
+QS.push(
+// yld
+{t:'yld',q:'100. g of CaC_2 (64.1 g/mol) reacts with excess water: CaC_2 + H_2O → Ca(OH)_2 + C_2H_2 (unbalanced). 12.2 g of C_2H_2 (26.0 g/mol) is produced. Percent yield?',o:['30%','40%','50%','60%','70%'],a:0,ns:1,ex:'Balanced: CaC<sub>2</sub> + 2H<sub>2</sub>O → Ca(OH)<sub>2</sub> + C<sub>2</sub>H<sub>2</sub>. 100/64.1 = 1.56 mol, so 40.6 g theoretical. 12.2/40.6 = 30%.',src:'Midterm 2 #1'},
+{t:'yld',q:'P_4 + F_2 → PF_3 (balance it). How much PF_3 (88.0 g/mol) forms from 4.80 g F_2 (38.0 g/mol) with excess P_4?',o:['7.41 g','17.2 g','4.23 g','1.33 g','7.68 g'],a:0,ex:'P<sub>4</sub> + 6F<sub>2</sub> → 4PF<sub>3</sub>. 0.1263 mol F<sub>2</sub> × 4/6 = 0.0842 mol × 88.0 = 7.41 g.',src:'Midterm 1 #17'},
+{t:'yld',q:'2H_2 + O_2 → 2H_2O. With 4.0 g H_2 and 16.0 g O_2, which is limiting, and how much water forms?',o:['O_2; 18 g','H_2; 36 g','O_2; 36 g','H_2; 18 g'],a:0,ex:'H<sub>2</sub>: 2.0 mol could make 2.0 mol H<sub>2</sub>O. O<sub>2</sub>: 0.50 mol could make 1.0 mol. O<sub>2</sub> is limiting, giving 1.0 mol = 18 g.'},
+{t:'yld',q:'N_2 + 3H_2 → 2NH_3 with 28.0 g N_2 and 9.0 g H_2. Mass of excess H_2 left over?',o:['2.9 g','6.0 g','1.5 g','0 g'],a:0,ex:'N<sub>2</sub> (1.00 mol) is limiting and uses 3.00 mol H<sub>2</sub>. 4.46 − 3.00 = 1.46 mol = 2.95 g.'},
+{t:'yld',q:'Percent yield is…',o:['actual ÷ theoretical × 100','theoretical ÷ actual × 100','(theoretical − actual) ÷ actual','limiting ÷ excess × 100'],a:0,ex:'It is always ≤ 100% in a real experiment.'},
+// lit
+{t:'lit',q:'How long does it take light to travel one meter in vacuum?',o:['210 ns','3.3 ns','92 ns','44 ps','2.8 ps'],a:1,ns:1,ex:'t = 1 m ÷ 3.00×10<sup>8</sup> m/s = 3.3×10<sup>−9</sup> s.',src:'Midterm 2 #2'},
+{t:'lit',q:'Wavelength of 98.9 MHz radio waves?',o:['8.1 µm','14 mm','82 mm','3.0 m','36 m'],a:3,ns:1,ex:'λ = c/ν = 3.00×10<sup>8</sup>/98.9×10<sup>6</sup> = 3.03 m.',src:'Midterm 2 #3'},
+{t:'lit',q:'Wavelength of the n = 5 → n = 1 transition in hydrogen?',o:['48.2 nm','95.0 nm','126 nm','242 nm','523 nm'],a:1,ns:1,ex:'ν = 3.29×10<sup>15</sup>(1 − 1/25) = 3.158×10<sup>15</sup> Hz. λ = c/ν = 95.0 nm.',src:'Midterm 2 #6'},
+{t:'lit',q:'Energy of 1 mole of photons of UV light with λ = 101.6 nm?',o:['277 kJ','36.7 MJ','917 kJ','1.18 MJ','89.1 MJ'],a:3,ns:1,ex:'hc/λ = 1.956×10<sup>−18</sup> J, × N<sub>A</sub> = 1.18×10<sup>6</sup> J.',src:'Midterm 2 #7'},
+{t:'lit',q:'A metal\'s threshold energy is 3.89×10^{−19} J. Which visible colors can eject electrons?',o:['Only green','Only red','Green, blue, indigo, and violet','Yellow, orange, and red','None of these'],a:2,ns:1,ex:'λ<sub>max</sub> = hc/E = 511 nm (green). Shorter wavelengths have more energy.',src:'Midterm 2 #9'},
+{t:'lit',q:'As the frequency of light increases…',o:['wavelength decreases and photon energy increases','wavelength increases and energy increases','speed increases','amplitude increases'],a:0,ex:'c = λν (c fixed), and E = hν.'},
+{t:'lit',q:'Which has the highest-energy photons?',o:['Gamma rays','X-rays','Ultraviolet','Radio waves'],a:0,ex:'Shortest wavelength.'},
+{t:'lit',q:'Select the correct statements.<br>I. All EM radiation travels at the same speed in vacuum.<br>II. Amplitude determines the energy of each photon.<br>III. Red light has a longer wavelength than blue light.',o:['I only','II only','I and III','II and III','I, II, and III'],a:2,ns:1,ex:'Amplitude affects intensity (number of photons), not the energy per photon.'},
+{t:'lit',q:'The emission lines of hydrogen come from…',o:['an electron dropping to a lower energy level and emitting a photon','the atom losing an electron','the nucleus emitting light','electrons colliding'],a:0,ex:'The electron stays in the atom. That\'s the trap on Midterm 2 #5.'},
+{t:'lit',q:'In hydrogen, as n increases, the spacing between adjacent energy levels…',o:['decreases','increases','stays the same','becomes zero at n = 2'],a:0,ex:'E ∝ −1/n<sup>2</sup>, so the levels crowd together near 0.'},
+// qua
+{t:'qua',q:'An electron moves at 7.00×10^6 m/s with uncertainty Δv = 0.01×10^6 m/s. Minimum uncertainty in position?',o:['5.8 nm','1.8 nm','0.91 nm','0.74 nm','11 pm'],a:0,ns:1,ex:'Δx = h/(4π m Δv) = 6.626×10<sup>−34</sup>/(4π × 9.109×10<sup>−31</sup> × 1×10<sup>4</sup>) = 5.8×10<sup>−9</sup> m.',src:'Midterm 2 #8'},
+{t:'qua',q:'Velocity of a neutron (1.67×10^{−27} kg) whose wavelength is 6.54 µm?',o:['60.7 mm/s','1.00 m/s','12.1 m/s','242 m/s','1.82 km/s'],a:0,ns:1,ex:'v = h/(mλ) = 0.0607 m/s.',src:'Midterm 2 #10'},
+{t:'qua',q:'Light below a metal\'s threshold frequency is made much brighter. What happens?',o:['Still no electrons are ejected','More electrons are ejected','Faster electrons are ejected','The threshold lowers'],a:0,ex:'Each electron needs one photon with enough energy. Brightness only adds more photons.'},
+{t:'qua',q:'Light above threshold is made brighter (same frequency). What happens?',o:['More electrons, same maximum kinetic energy','Same number of electrons, faster','Fewer electrons','No change'],a:0,ex:'More photons means more electrons.'},
+{t:'qua',q:'An electron and a proton move at the same speed. Which has the longer de Broglie wavelength?',o:['The electron','The proton','They are equal','Neither has one'],a:0,ex:'λ = h/(mv). Smaller mass means longer λ.'},
+{t:'qua',q:'The Heisenberg uncertainty principle says…',o:['position and momentum can\'t both be known exactly at the same time','electrons move in fixed circular orbits','energy is not quantized','measurements are always inaccurate'],a:0,ex:'Δp·Δx ≥ h/4π.'},
+// orb
+{t:'orb',q:'An electron in hydrogen has energy −8.72×10^{−20} J. What is n?',o:['1','2','3','4','5'],a:4,ns:1,ex:'2.18×10<sup>−18</sup>/8.72×10<sup>−20</sup> = 25 = n<sup>2</sup>, so n = 5.',src:'Midterm 2 #11'},
+{t:'orb',q:'A hydrogen electron has E = −5.45×10^{−19} J. Which orbital(s) does it occupy?',o:['2s','2s, 2p<sub>x</sub>, 2p<sub>y</sub>, and 2p<sub>z</sub>','2s, 2p<sub>x</sub>, 2p<sub>y</sub>, or 2p<sub>z</sub>','1s, 2s, 2p<sub>x</sub>, 2p<sub>y</sub>, and 2p<sub>z</sub>','None of these'],a:2,ns:1,ex:'n = 2. One electron occupies one orbital at a time. "or", not "and".',src:'Midterm 2 #12'},
+{t:'orb',q:'Which statements are correct?<br>I. l = 2 describes d orbitals.<br>II. m<sub>l</sub> for 3p is −2, −1, 0, 1, 2.<br>III. m<sub>l</sub> for 3s is −3 … +3.<br>IV. In a multielectron atom, six electrons may occupy the l = 1 subshell.',o:['I','I and II','I and IV','I, III, and IV','I, II, III, and IV'],a:2,ns:1,ex:'3p: m<sub>l</sub> = −1, 0, +1. 3s: m<sub>l</sub> = 0. A p subshell holds 6 electrons.',src:'Midterm 2 #15'},
+{t:'orb',q:'Possible m<sub>l</sub> values for the 3p subshell?',o:['−1, 0, +1','0','−2, −1, 0, +1, +2','−3 … +3'],a:0,ex:'p means l = 1, so m<sub>l</sub> runs from −1 to +1.',src:'Homework'},
+{t:'orb',q:'How many radial nodes does a 3p orbital have?',o:['1','0','2','3'],a:0,ex:'n − l − 1 = 3 − 1 − 1 = 1.'},
+{t:'orb',q:'How many orbitals are in the n = 3 shell?',o:['9','3','6','18'],a:0,ex:'n<sup>2</sup> = 9 (one 3s, three 3p, five 3d).'},
+{t:'orb',q:'Which set of quantum numbers is NOT allowed?',o:['n = 2, l = 2, m<sub>l</sub> = 0','n = 3, l = 2, m<sub>l</sub> = −2','n = 1, l = 0, m<sub>l</sub> = 0','n = 4, l = 3, m<sub>l</sub> = 3'],a:0,ex:'l can only go up to n − 1.'},
+{t:'orb',q:'Select the correct statements about a hydrogen electron in a 3d orbital.<br>I. The electron hops rapidly between the lobes.<br>II. Only an excited hydrogen atom can have its electron in a d orbital.<br>III. A 3d orbital has no radial nodes.',o:['I only','I and II','II only','II and III','III only'],a:3,ns:1,ex:'An orbital is a single standing wave, so there\'s no hopping. Ground-state H is 1s. 3d: 3 − 2 − 1 = 0 radial nodes.'},
+{t:'orb',q:'In a hydrogen atom, which orbitals have the same energy?',o:['All orbitals with the same n (e.g. 2s and 2p)','Only orbitals with the same l','Only the three 2p orbitals','None'],a:0,ex:'In hydrogen, energy depends only on n. This is not true in many-electron atoms.'},
+{t:'orb',q:'Maximum number of electrons in the n = 2 shell?',o:['8','2','4','18'],a:0,ex:'2n<sup>2</sup> = 8.'},
+// unt
+{t:'unt',q:'What is 92,300,000 µg in g?',o:['92.3 g','9.23×10^3 g','9.23×10^{10} g','9.23×10^{−2} g','9.23×10^{−6} g'],a:0,ns:1,ex:'× 10<sup>−6</sup> g/µg.',src:'Midterm 1 #1'},
+{t:'unt',q:'How many mm are in 6.2 m?',o:['62,000 mm','6,200 mm','620 mm','0.0062 mm'],a:1,ns:1,ex:'1 m = 1000 mm.',src:'Midterm 1 #3'},
+{t:'unt',q:'A C–C bond is 0.154 nm long. About how many bond lengths make up 1.0 µm?',o:['260','6,500','61,000','2.6×10^9'],a:1,ns:1,ex:'1.0 µm = 1000 nm. 1000/0.154 = 6.5×10<sup>3</sup>.',src:'Midterm 1 #7'},
+{t:'unt',q:'How many significant figures are in 0.00450?',o:['3','2','5','6'],a:0,ex:'Leading zeros don\'t count. The trailing zero after the decimal does.'},
+{t:'unt',q:'2.50 × 3.1 = ? (correct sig figs)',o:['7.8','7.75','7.750','8'],a:0,ex:'3.1 has only 2 sig figs.'},
+{t:'unt',q:'Repeated measurements of 4.21, 4.22, 4.21 g for a true mass of 5.00 g are…',o:['precise but not accurate','accurate but not precise','both','neither'],a:0,ex:'They agree closely with each other but are far from the true value.'},
+// mol
+{t:'mol',q:'How many moles of O_2 correspond to 1.11×10^{24} molecules?',o:['0.059 mol','0.59 mol','3.66 mol','0.256 mol','1.84 mol'],a:4,ns:1,ex:'1.11×10<sup>24</sup> / 6.022×10<sup>23</sup> = 1.84.',src:'Midterm 1 #2'},
+{t:'mol',q:'How many moles of Ne are in 10.09 g?',o:['4.000','2.300','0.500','0.0700'],a:2,ns:1,ex:'10.09/20.18 = 0.500.',src:'Midterm 1 #4'},
+{t:'mol',q:'How many Na atoms are in 0.68 mol of Na_2SO_3?',o:['7.7×10^{22}','1.1×10^{23}','2.0×10^{23}','8.2×10^{23}','1.2×10^{24}'],a:3,ns:1,ex:'0.68 × 2 × 6.022×10<sup>23</sup> = 8.2×10<sup>23</sup>.',src:'Midterm 1 #8'},
+{t:'mol',q:'A compound is 37.49% C, 12.58% H, 49.93% O. Empirical formula?',o:['C_6H_7O','C_2H_3O_2','C_3H_4O_3','CH_2O_3','CH_4O'],a:4,ns:1,ex:'3.12 : 12.48 : 3.12 = 1 : 4 : 1.',src:'Midterm 1 #15'},
+{t:'mol',q:'Moles of O atoms in 2.0 mol Ca(NO_3)_2?',o:['12','6','3','2'],a:0,ex:'Each formula unit has 6 O. 2 × 6 = 12.'},
+{t:'mol',q:'Chlorine is ^{35}Cl (34.97) and ^{37}Cl (36.97), average 35.45. Approximate % of ^{35}Cl?',o:['76%','24%','50%','90%'],a:0,ex:'34.97x + 36.97(1 − x) = 35.45, so x = 0.76.'},
+// atm
+{t:'atm',q:'Formula for the compound of magnesium ions and chromate ions?',o:['MgCrO_4^2−','Mg_2CrO_4','MgCrO_4','Mg(CrO_4)_2'],a:2,ns:1,ex:'Mg<sup>2+</sup> + CrO<sub>4</sub><sup>2−</sup>, a 1:1 ratio.',src:'Midterm 1 #5'},
+{t:'atm',q:'Fluorine has 9 p, 10 n, 9 e. What % of its mass do the electrons make up? (p, n = 1.67×10^{−27} kg; e = 9.11×10^{−31} kg)',o:['0.00912%','1.01%','0.0258%','0.673%'],a:2,ns:1,ex:'9(9.11×10<sup>−31</sup>) ÷ [19(1.67×10<sup>−27</sup>) + 9(9.11×10<sup>−31</sup>)] = 0.0258%.',src:'Midterm 1 #10'},
+{t:'atm',q:'Magnesium permanganate. Correct statements?<br>I. As a solid, it is neutral.<br>II. Mn^2+(aq) ions exist in solution.<br>III. As a solid, the formula is Mg(MnO_4)^−.',o:['I','II','III','II and III','None'],a:0,ns:1,ex:'The formula is Mg(MnO<sub>4</sub>)<sub>2</sub>. In water it gives MnO<sub>4</sub><sup>−</sup>, not Mn<sup>2+</sup>.',src:'Midterm 1 #11'},
+{t:'atm',q:'Which exist as discrete molecules? I. NaCl(s) II. CH_4(s) III. NH_4ClO(s) IV. O_2(s)',o:['II, III, IV','I','I and III','II and IV','IV'],a:3,ns:1,ex:'NaCl and NH<sub>4</sub>ClO are ionic (lattices, not molecules).',src:'Midterm 1 #12'},
+{t:'atm',q:'Correct statements?<br>I. Most H atoms have 0 neutrons; most He atoms have 2.<br>II. Most of an atom\'s mass is in its nucleus.<br>III. Chlorine has only one stable isotope.',o:['I','I and II','II','II and III','None'],a:1,ns:1,ex:'Cl has two stable isotopes: Cl-35 and Cl-37.',src:'Midterm 1 #14'},
+{t:'atm',q:'Protons, neutrons, and electrons in ^{56}Fe^3+?',o:['26, 30, 23','26, 30, 26','26, 56, 23','30, 26, 23'],a:0,ex:'Z = 26. 56 − 26 = 30 neutrons. 26 − 3 = 23 electrons.'},
+{t:'atm',q:'Which is an ionic compound?',o:['KNO_3','CO_2','NH_3','CH_4'],a:0,ex:'A metal cation with a polyatomic anion.'},
+// sol
+{t:'sol',q:'How many µmol of solute are in 2.6 mL of a 5.0 mM solution?',o:['9.6','13','42','7.3×10^{−2}'],a:1,ns:1,ex:'mM × mL = µmol: 5.0 × 2.6 = 13.',src:'Midterm 1 #6'},
+{t:'sol',q:'Concentration of 500. mL containing 58.45 g NaCl (58.45 g/mol)?',o:['1.00 M','2.00 M','3.00 M','4.00 M','5.00 M'],a:1,ns:1,ex:'1.00 mol / 0.500 L.',src:'Midterm 1 #9'},
+{t:'sol',q:'What volume of 1.80 M K_3PO_4 diluted to 200. mL gives [K^+] = 25.0 mM?',o:['221 µL','833 µL','1.01 mL','22.2 mL','None of these'],a:4,ns:1,ex:'[K<sub>3</sub>PO<sub>4</sub>] needed = 25.0/3 = 8.33 mM. V = 8.33×10<sup>−3</sup> × 200 / 1.80 = 0.926 mL = 926 µL, which isn\'t listed.',src:'Midterm 1 #16'},
+{t:'sol',q:'AgNO_3(aq) + NaCl(aq) → ? Which forms a precipitate?',o:['AgCl(s)','NaNO_3(s)','No precipitate','Both'],a:0,ex:'Chlorides are soluble except with Ag<sup>+</sup>, Pb<sup>2+</sup>, Hg<sub>2</sub><sup>2+</sup>. Nitrates are always soluble.'},
+{t:'sol',q:'Which is insoluble in water?',o:['BaSO_4','Na_2SO_4','KCl','NH_4NO_3'],a:0,ex:'Ba is one of the sulfate exceptions.'},
+{t:'sol',q:'Balance: C_3H_8 + O_2 → CO_2 + H_2O. Coefficients?',o:['1, 5, 3, 4','1, 3, 3, 4','2, 7, 6, 8','1, 4, 3, 4'],a:0,ex:'C first (3), then H (4 H<sub>2</sub>O), then O: 6 + 4 = 10 O atoms, so 5 O<sub>2</sub>.'},
+{t:'sol',q:'Balance: Al + O_2 → Al_2O_3. Coefficients?',o:['4, 3, 2','2, 3, 1','4, 3, 1','2, 1, 1'],a:0,ex:'4Al + 3O<sub>2</sub> → 2Al<sub>2</sub>O<sub>3</sub>.'}
+);
+
+CARDS.push(
+['yld','Limiting reagent','The reactant that makes the least product. Compare product moles from each reactant.'],
+['yld','% yield','actual ÷ theoretical × 100'],
+['lit','c = λν','c = 3.00×10^8 m/s. All EM radiation, any frequency.'],
+['lit','E = hν = hc/λ','h = 6.626×10^{−34} J·s. Per mole: × 6.022×10^23.'],
+['lit','Rydberg','ν = R(1/n_{1}^2 − 1/n_{2}^2), R = 3.29×10^15 Hz'],
+['lit','Visible range','≈ 400 nm (violet) to 700 nm (red)'],
+['lit','Emission','Electron drops to a lower n and emits a photon. It doesn\'t leave the atom.'],
+['qua','Photoelectric effect','One photon needs E ≥ threshold. Brighter = more electrons. Higher ν = faster electrons.'],
+['qua','de Broglie','λ = h/(mv)'],
+['qua','Uncertainty','Δp·Δx ≥ h/(4π), Δp = mΔv'],
+['orb','Quantum numbers','n ≥ 1; l = 0…n−1; m_{l} = −l…+l; m_{s} = ±½'],
+['orb','Nodes','radial = n − l − 1; angular = l'],
+['orb','H energy','E_{n} = −2.18×10^{−18} J / n^2'],
+['orb','Orbitals per shell','n^2 orbitals, 2n^2 electrons'],
+['unt','Prefixes','G 10^9, M 10^6, k 10^3, m 10^{−3}, µ 10^{−6}, n 10^{−9}, p 10^{−12}'],
+['unt','Sig figs (×/÷)','Keep the fewest sig figs of the inputs.'],
+['mol','Avogadro','6.022×10^23 per mole'],
+['mol','Empirical formula','Assume 100 g → moles → divide by the smallest.'],
+['atm','Isotopes','Same protons, different neutrons.'],
+['atm','Common ions','Group 1 +1, group 2 +2, group 17 −1. Chromate CrO_4^2−, permanganate MnO_4^−.'],
+['sol','Dilution','M_1V_1 = M_2V_2. mM × mL = µmol.'],
+['sol','Always soluble','Group 1, NH_4^+, NO_3^−, acetate']
+);
+
+// ===== Topics 2D and 2E (in the textbook pages; likely this week's lectures) =====
+TOPICS.splice(7,0,
+ {id:'bnd',sec:3,sym:'Bp',n:'Bond properties: electronegativity, strength, length',src:'Focus 2D · upcoming lectures',
+  lesson:[
+  ['Electronegativity and polar bonds',`<b>Electronegativity (χ)</b> = how hard an atom pulls on shared electrons in a bond. It increases left → right and up a group. <b>F is highest (3.98)</b>, then O (3.44), Cl (3.16), N (3.04). Cs is lowest.
+  When two different atoms bond, the more electronegative one gets a partial negative charge: δ+H–Clδ−. That's a <b>polar covalent bond</b>. Identical atoms (Cl<sub>2</sub>, O<sub>2</sub>) make nonpolar bonds.
+  <div class="key">Δχ ≈ 2 or more → ionic. Δχ below about 1.5 → covalent (polar if Δχ &gt; 0).</div>
+  <div class="ex">NaCl: 3.16 − 0.93 = 2.23 → ionic. C–O: 3.44 − 2.55 = 0.89 → polar covalent. Mg–Cl: 1.85 → lots of ionic character.</div>
+  Dipole moment μ is measured in debye (D). HCl ≈ 1.1 D.`],
+  ['Polarizability (covalent character in ionic bonds)',`A cation pulls the anion's electron cloud toward itself, adding covalent character.
+  <ul><li><b>Large anions are highly polarizable</b> (I<sup>−</sup> ≫ F<sup>−</sup>).</li><li><b>Small, highly charged cations have high polarizing power</b> (Al<sup>3+</sup>, Be<sup>2+</sup>, Li<sup>+</sup>).</li>
+  <li>Polarizing power rises across a period (Li<sup>+</sup> &lt; Be<sup>2+</sup>) and falls down a group (Li<sup>+</sup> &gt; Na<sup>+</sup>).</li></ul>`],
+  ['Bond strength and bond length',`<b>Bond strength</b> = dissociation energy D (the energy to pull the bonded atoms apart).
+  <div class="key">Higher bond order → stronger and shorter. For the same two atoms: triple &gt; double &gt; single in strength; triple &lt; double &lt; single in length.</div>
+  <div class="ex">N≡N 944 &gt; O=O 496 &gt; F–F 158 kJ/mol. C–C 154 pm &gt; C=C 134 &gt; C≡C 120 pm. Benzene C–C = 139 pm (resonance average).</div>
+  A double bond is <b>not</b> twice as strong as a single bond (C=C 612 vs 2 × 348). Bigger atoms make longer, weaker bonds: H–F &gt; H–Cl &gt; H–Br &gt; H–I in strength. <b>Covalent radius</b> = an atom's share of a bond length (C 77 + Cl 99 ≈ 176 pm for C–Cl).`]
+ ]},
+ {id:'vse',sec:3,sym:'Vs',n:'VSEPR shapes & polarity',src:'Focus 2E · upcoming lectures',
+  lesson:[
+  ['The idea',`Electron regions around the central atom (each bond <i>or</i> lone pair) repel and spread out as far as possible. <b>A double or triple bond counts as one region.</b>
+  <div class="key">2 regions: linear 180° · 3: trigonal planar 120° · 4: tetrahedral 109.5° · 5: trigonal bipyramidal 90/120° · 6: octahedral 90°</div>`],
+  ['Lone pairs change the shape',`Lone pairs count for the electron arrangement, but you name the <b>shape</b> from the atoms only. Lone pairs repel more than bonds, so they squeeze angles: CH<sub>4</sub> 109.5° &gt; NH<sub>3</sub> 107° &gt; H<sub>2</sub>O 104.5°.
+  <div class="ex">AX<sub>3</sub>E (NH<sub>3</sub>): trigonal pyramidal · AX<sub>2</sub>E<sub>2</sub> (H<sub>2</sub>O): bent · AX<sub>2</sub>E (SO<sub>2</sub>): bent<br>AX<sub>4</sub>E (SF<sub>4</sub>): seesaw · AX<sub>3</sub>E<sub>2</sub> (ClF<sub>3</sub>): T-shaped · AX<sub>2</sub>E<sub>3</sub> (I<sub>3</sub><sup>−</sup>, XeF<sub>2</sub>): linear<br>AX<sub>5</sub>E (BrF<sub>5</sub>): square pyramidal · AX<sub>4</sub>E<sub>2</sub> (XeF<sub>4</sub>): square planar</div>
+  In a trigonal bipyramid, lone pairs go in the equatorial positions.`],
+  ['Polar molecules',`A molecule is polar if its bond dipoles <b>don't cancel</b>.
+  <div class="ex">CO<sub>2</sub> (linear): cancel → nonpolar. H<sub>2</sub>O (bent): polar.<br>CCl<sub>4</sub>: nonpolar. CHCl<sub>3</sub>, NH<sub>3</sub>: polar.<br>BF<sub>3</sub>, SF<sub>6</sub>, XeF<sub>4</sub>: nonpolar (symmetric).</div>`]
+ ]});
+
+QS.push(
+{t:'bnd',q:'Which element has the highest electronegativity?',o:['F','O','Cl','Cs'],a:0,ex:'F = 3.98. It sits at the top right (the noble gases aren\'t ranked).'},
+{t:'bnd',type:'rank',q:'Rank by electronegativity.',items:['F','O','N','C','H'],hi:'Highest χ',lo:'Lowest χ',ex:'3.98, 3.44, 3.04, 2.55, 2.20.'},
+{t:'bnd',q:'Which bond is the most polar?',o:['H–F','H–Cl','H–Br','H–I'],a:0,ex:'The largest Δχ (3.98 − 2.20).'},
+{t:'bnd',q:'The Mg–Cl bond has Δχ ≈ 1.85, and the C–O bond has Δχ ≈ 0.89. Best descriptions?',o:['Mg–Cl largely ionic; C–O polar covalent','Both nonpolar covalent','Both ionic','Mg–Cl covalent; C–O ionic'],a:0,ex:'Δχ near 2 means ionic; below about 1.5 means covalent (polar).'},
+{t:'bnd',q:'Which ion is the most polarizable?',o:['I^−','F^−','Cl^−','Na^+'],a:0,ex:'Large anion, so its outer electrons feel a small Z<sub>eff</sub>.'},
+{t:'bnd',q:'Which cation has the greatest polarizing power?',o:['Al^3+','Na^+','K^+','Cs^+'],a:0,ex:'Small and highly charged.'},
+{t:'bnd',q:'Which bond is strongest?',o:['N≡N','O=O','F–F','N–N'],a:0,ex:'Higher bond order means stronger: 944 vs 496 vs 158 kJ/mol.'},
+{t:'bnd',type:'rank',q:'Rank the carbon–carbon bonds by length.',items:['C–C (single)','C–C in benzene','C=C','C≡C'],hi:'Longest',lo:'Shortest',ex:'154 > 139 (resonance average) > 134 > 120 pm.'},
+{t:'bnd',q:'A C=C double bond (612 kJ/mol) compared with two C–C single bonds (2 × 348 = 696 kJ/mol):',o:['The double bond is weaker than two single bonds','The double bond is exactly twice a single bond','The double bond is stronger than two single bonds','They are unrelated'],a:0,ex:'The electron pairs in a multiple bond repel each other.'},
+{t:'bnd',q:'Which H–X bond is weakest?',o:['H–I','H–F','H–Cl','H–Br'],a:0,ex:'Bigger atoms make longer, weaker bonds.'},
+{t:'bnd',q:'Estimate the C–Cl bond length using covalent radii C = 77 pm and Cl = 99 pm.',o:['176 pm','99 pm','22 pm','198 pm'],a:0,ex:'Add the two covalent radii.'},
+{t:'vse',q:'Shape of NH_3?',o:['Trigonal pyramidal','Trigonal planar','Tetrahedral','Bent'],a:0,ex:'4 regions (3 bonds + 1 lone pair): tetrahedral arrangement, so the atoms form a pyramid.'},
+{t:'vse',q:'Shape of H_2O?',o:['Bent (angular)','Linear','Tetrahedral','Trigonal planar'],a:0,ex:'AX<sub>2</sub>E<sub>2</sub>.'},
+{t:'vse',q:'Shape of CO_2?',o:['Linear','Bent','Trigonal planar','Tetrahedral'],a:0,ex:'2 regions (each double bond counts as one).'},
+{t:'vse',q:'Shape of BF_3?',o:['Trigonal planar','Trigonal pyramidal','T-shaped','Tetrahedral'],a:0,ex:'3 regions, no lone pairs.'},
+{t:'vse',q:'Shape of SF_4?',o:['Seesaw','Tetrahedral','Square planar','Trigonal pyramidal'],a:0,ex:'AX<sub>4</sub>E: 5 regions, with the lone pair in an equatorial position.'},
+{t:'vse',q:'Shape of XeF_4?',o:['Square planar','Tetrahedral','Seesaw','Square pyramidal'],a:0,ex:'AX<sub>4</sub>E<sub>2</sub>: octahedral arrangement with the two lone pairs opposite each other.'},
+{t:'vse',q:'Shape of I_3^−?',o:['Linear','Bent','T-shaped','Trigonal planar'],a:0,ex:'AX<sub>2</sub>E<sub>3</sub>: the 3 lone pairs are equatorial, so the atoms line up.'},
+{t:'vse',q:'Shape of ClF_3?',o:['T-shaped','Trigonal planar','Trigonal pyramidal','Seesaw'],a:0,ex:'AX<sub>3</sub>E<sub>2</sub>.'},
+{t:'vse',type:'rank',q:'Rank by bond angle.',items:['CH_4','NH_3','H_2O'],hi:'Largest angle',lo:'Smallest angle',ex:'109.5° > 107° > 104.5°: each lone pair squeezes the bonds closer.'},
+{t:'vse',q:'Which molecule is nonpolar?',o:['CCl_4','CHCl_3','NH_3','H_2O'],a:0,ex:'4 identical atoms in a tetrahedron, so the bond dipoles cancel.'},
+{t:'vse',q:'Which molecule is polar?',o:['SO_2','CO_2','BF_3','SF_6'],a:0,ex:'Bent, so the bond dipoles don\'t cancel.'},
+{t:'vse',q:'For counting VSEPR regions, a double bond counts as…',o:['one region','two regions','half a region','zero regions'],a:0,ex:'Any bond to one atom = one region.'},
+{t:'vse',q:'Electron arrangement and shape of SO_3^2−?',o:['Tetrahedral arrangement; trigonal pyramidal shape','Trigonal planar arrangement and shape','Tetrahedral arrangement and shape','Trigonal bipyramidal; T-shaped'],a:0,ex:'S has 3 bonds + 1 lone pair (AX<sub>3</sub>E).'}
+);
+CARDS.push(
+['bnd','Electronegativity trend','↑ across a period, ↑ up a group. F 3.98 > O 3.44 > Cl 3.16 > N 3.04'],
+['bnd','Ionic vs covalent','Δχ ≈ 2 → ionic. Δχ &lt; 1.5 → covalent (polar if Δχ &gt; 0).'],
+['bnd','Polarizability','Big anions are polarizable (I^−). Small, highly charged cations polarize (Al^3+). Together → covalent character.'],
+['bnd','Bond order rule','Higher order → stronger and shorter (same two atoms).'],
+['bnd','Double ≠ 2 × single','C=C 612 &lt; 2 × C–C 696 kJ/mol'],
+['vse','VSEPR basics','2 linear, 3 trigonal planar, 4 tetrahedral, 5 trigonal bipyramidal, 6 octahedral. A multiple bond = 1 region.'],
+['vse','Lone pairs','Repel more. Shape is named from the atoms only. NH_3 pyramidal 107°, H_2O bent 104.5°.'],
+['vse','5-region shapes','AX_4E seesaw, AX_3E_2 T-shaped, AX_2E_3 linear (lone pairs equatorial).'],
+['vse','6-region shapes','AX_5E square pyramidal, AX_4E_2 square planar.'],
+['vse','Polar molecule','The bond dipoles don\'t cancel. CO_2, CCl_4, BF_3 are nonpolar. H_2O, NH_3, SO_2 are polar.']
+);
+
+// ===== Lewis lab: molecules, step-by-step, auto formal charges =====
+const VAL={H:1,B:3,C:4,N:5,O:6,F:7,S:6,Cl:7,I:7,Xe:8,P:5};
+// atom: [el,x,y,lonePairs,radicalElectrons]; bond: [i,j,order]
+function S(atoms,bonds,o={}){return {a:atoms.map(([e,x,y,lp=0,r=0])=>({e,x,y,lp,r})),b:bonds,...o}}
+const MOLS=[
+{id:'nh4',f:'NH_4^+',n:'Ammonium ion',total:8,charge:'+',
+ steps:[
+ ['Count valence electrons','N = 5, H = 4 × 1 = 4, and the + charge removes 1. Total = <b>8</b>.',S([['N',130,85],['H',130,30],['H',185,85],['H',130,140],['H',75,85]],[])],
+ ['Central atom + single bonds','N is the lonely atom, so it goes in the middle (H is never central). 4 bonds × 2 = 8 e⁻ used, 0 left.',S([['N',130,85],['H',130,30],['H',185,85],['H',130,140],['H',75,85]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]])],
+ ['Check octets + formal charge','N has 8 and each H has 2. FC(N) = 5 − 0 − 4 = <b>+1</b>, which matches the ion\'s charge.',S([['N',130,85],['H',130,30],['H',185,85],['H',130,140],['H',75,85]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],{fc:1,br:'+'})]
+ ]},
+{id:'co2',f:'CO_2',n:'Carbon dioxide',total:16,
+ steps:[
+ ['Count valence electrons','C = 4, O = 2 × 6 = 12. Total = <b>16</b>.',S([['O',60,85],['C',130,85],['O',200,85]],[])],
+ ['Central atom + single bonds','C has the lower IE and there\'s only one, so it\'s central. 2 bonds use 4 e⁻, leaving 12.',S([['O',60,85],['C',130,85],['O',200,85]],[[0,1,1],[1,2,1]])],
+ ['Lone pairs on outer atoms','Give each O 3 lone pairs (12 e⁻). 0 left. But C only has 4 electrons around it!',S([['O',60,85,3],['C',130,85],['O',200,85,3]],[[0,1,1],[1,2,1]])],
+ ['Make multiple bonds','Move one lone pair from each O into a bond: O=C=O. Now everyone has 8. All FC = 0.',S([['O',60,85,2],['C',130,85],['O',200,85,2]],[[0,1,2],[1,2,2]],{fc:1})]
+ ]},
+{id:'hcn',f:'HCN',n:'Hydrogen cyanide',total:10,
+ steps:[
+ ['Count valence electrons','H 1 + C 4 + N 5 = <b>10</b>.',S([['H',55,85],['C',130,85],['N',205,85]],[])],
+ ['Skeleton','C is central (lowest IE, and H can only make 1 bond). 2 bonds = 4 e⁻, leaving 6.',S([['H',55,85],['C',130,85],['N',205,85]],[[0,1,1],[1,2,1]])],
+ ['Lone pairs','Put 3 pairs on N. 0 left, and C has only 4.',S([['H',55,85],['C',130,85],['N',205,85,3]],[[0,1,1],[1,2,1]])],
+ ['Triple bond','Move 2 of N\'s pairs into bonds: H–C≡N with 1 lone pair on N. All octets, all FC = 0.',S([['H',55,85],['C',130,85],['N',205,85,1]],[[0,1,1],[1,2,3]],{fc:1})]
+ ]},
+{id:'ch2o',f:'CH_2O',n:'Formaldehyde',total:12,
+ steps:[
+ ['Count valence electrons','C 4 + 2 H 2 + O 6 = <b>12</b>.',S([['C',120,85],['O',195,85],['H',70,40],['H',70,130]],[])],
+ ['Skeleton','C is central. 3 bonds = 6 e⁻, leaving 6.',S([['C',120,85],['O',195,85],['H',70,40],['H',70,130]],[[0,1,1],[0,2,1],[0,3,1]])],
+ ['Lone pairs','O gets 3 pairs. 0 left, and C only has 6.',S([['C',120,85],['O',195,85,3],['H',70,40],['H',70,130]],[[0,1,1],[0,2,1],[0,3,1]])],
+ ['Double bond','Move one O pair to make C=O. Octets complete, all FC = 0.',S([['C',120,85],['O',195,85,2],['H',70,40],['H',70,130]],[[0,1,2],[0,2,1],[0,3,1]],{fc:1})]
+ ]},
+{id:'no3',f:'NO_3^−',n:'Nitrate ion',total:24,charge:'−',
+ steps:[
+ ['Count valence electrons','N 5 + 3 O × 6 = 18, plus 1 for the − charge. Total = <b>24</b>.',S([['N',130,95],['O',130,35],['O',75,128],['O',185,128]],[])],
+ ['Skeleton','N is central. 3 bonds = 6 e⁻, leaving 18.',S([['N',130,95],['O',130,35],['O',75,128],['O',185,128]],[[0,1,1],[0,2,1],[0,3,1]])],
+ ['Lone pairs','Each O gets 3 pairs (18 e⁻). 0 left, but N only has 6.',S([['N',130,95],['O',130,35,3],['O',75,128,3],['O',185,128,3]],[[0,1,1],[0,2,1],[0,3,1]])],
+ ['Double bond + formal charges','Make one N=O. FC: N +1, each single-bonded O −1. Sum = −1 ✓.',S([['N',130,95],['O',130,35,2],['O',75,128,3],['O',185,128,3]],[[0,1,2],[0,2,1],[0,3,1]],{fc:1,br:'−'})],
+ ['Resonance','The double bond could go to any of the 3 O atoms, so there are <b>3 resonance structures</b>. The real ion is a blend: all three N–O bonds are identical.',S([['N',130,95],['O',130,35,3],['O',75,128,2],['O',185,128,3]],[[0,1,1],[0,2,2],[0,3,1]],{fc:1,br:'−'})]
+ ]},
+{id:'o3',f:'O_3',n:'Ozone',total:18,
+ steps:[
+ ['Count valence electrons','3 × 6 = <b>18</b>.',S([['O',65,110],['O',130,70],['O',195,110]],[])],
+ ['Skeleton','A chain O–O–O. 2 bonds = 4 e⁻, leaving 14.',S([['O',65,110],['O',130,70],['O',195,110]],[[0,1,1],[1,2,1]])],
+ ['Lone pairs','The outer O atoms get 3 pairs each (12). The last 2 e⁻ go on the central O.',S([['O',65,110,3],['O',130,70,1],['O',195,110,3]],[[0,1,1],[1,2,1]])],
+ ['Double bond + formal charges','The central O only has 6, so make one O=O. FC: central +1, single-bonded O −1. Resonance: the double bond can be on either side (2 structures).',S([['O',65,110,3],['O',130,70,1],['O',195,110,2]],[[0,1,1],[1,2,2]],{fc:1})]
+ ]},
+{id:'nco',f:'NCO^−',n:'Cyanate ion (formal charge choice)',total:16,charge:'−',
+ steps:[
+ ['Count valence electrons','N 5 + C 4 + O 6 + 1 = <b>16</b>.',S([['N',60,85],['C',130,85],['O',200,85]],[])],
+ ['Option A: N≡C–O','FC: N 0, C 0, O −1.',S([['N',60,85,1],['C',130,85],['O',200,85,3]],[[0,1,3],[1,2,1]],{fc:1,br:'−'})],
+ ['Option B: N=C=O','FC: N −1, C 0, O 0.',S([['N',60,85,2],['C',130,85],['O',200,85,2]],[[0,1,2],[1,2,2]],{fc:1,br:'−'})],
+ ['Option C: N–C≡O','FC: N −2, C 0, O +1. Large charges, so this is the worst.',S([['N',60,85,3],['C',130,85],['O',200,85,1]],[[0,1,1],[1,2,3]],{fc:1,br:'−'})],
+ ['Verdict','A and B both have small charges. <b>A wins</b> because its −1 sits on O, the most electronegative atom.',S([['N',60,85,1],['C',130,85],['O',200,85,3]],[[0,1,3],[1,2,1]],{fc:1,br:'−'})]
+ ]},
+{id:'bf3',f:'BF_3',n:'Boron trifluoride (incomplete octet)',total:24,
+ steps:[
+ ['Count valence electrons','B 3 + 3 F × 7 = <b>24</b>.',S([['B',130,95],['F',130,35],['F',75,128],['F',185,128]],[])],
+ ['Skeleton + lone pairs','3 bonds (6 e⁻), then 3 pairs on each F (18). 0 left. B has only 6.',S([['B',130,95],['F',130,35,3],['F',75,128,3],['F',185,128,3]],[[0,1,1],[0,2,1],[0,3,1]],{fc:1})],
+ ['Should we add a double bond?','A B=F double bond would give B −1 and F +1, a positive charge on the most electronegative element. That\'s bad.',S([['B',130,95],['F',130,35,2],['F',75,128,3],['F',185,128,3]],[[0,1,2],[0,2,1],[0,3,1]],{fc:1})],
+ ['Verdict','Keep three single bonds. B is fine with 6 e⁻ (incomplete octet), and every FC = 0.',S([['B',130,95],['F',130,35,3],['F',75,128,3],['F',185,128,3]],[[0,1,1],[0,2,1],[0,3,1]],{fc:1})]
+ ]},
+{id:'i3',f:'I_3^−',n:'Triiodide ion (expanded octet)',total:22,charge:'−',
+ steps:[
+ ['Count valence electrons','3 × 7 + 1 = <b>22</b>.',S([['I',50,85],['I',130,85],['I',210,85]],[])],
+ ['Skeleton + outer lone pairs','2 bonds (4), then 3 pairs on each outer I (12). That leaves 6 e⁻.',S([['I',50,85,3],['I',130,85],['I',210,85,3]],[[0,1,1],[1,2,1]])],
+ ['Leftovers go on the central atom','Put 3 lone pairs on the central I, giving it <b>10 electrons</b>. That\'s allowed because I is in period 5 and has d orbitals. FC(central) = 7 − 6 − 2 = −1.',S([['I',50,85,3],['I',130,85,3],['I',210,85,3]],[[0,1,1],[1,2,1]],{fc:1,br:'−'})]
+ ]},
+{id:'sf4',f:'SF_4',n:'Sulfur tetrafluoride (expanded octet)',total:34,
+ steps:[
+ ['Count valence electrons','S 6 + 4 × 7 = <b>34</b>.',S([['S',125,90],['F',125,28],['F',125,152],['F',58,90],['F',185,125]],[])],
+ ['Skeleton + F lone pairs','4 bonds (8) + 3 pairs on each F (24) = 32. That leaves 2 e⁻.',S([['S',125,90],['F',125,28,3],['F',125,152,3],['F',58,90,3],['F',185,125,3]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]])],
+ ['Lone pair on S','The last pair goes on S, which now has <b>10 e⁻</b>. All FC = 0.',S([['S',125,90,1],['F',125,28,3],['F',125,152,3],['F',58,90,3],['F',185,125,3]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],{fc:1})]
+ ]},
+{id:'clo4',f:'ClO_4^−',n:'Perchlorate ion (minimize formal charge)',total:32,charge:'−',
+ steps:[
+ ['Count valence electrons','Cl 7 + 4 × 6 + 1 = <b>32</b>.',S([['Cl',130,88],['O',130,28],['O',130,150],['O',65,88],['O',195,88]],[])],
+ ['Octet version','4 single bonds + 3 pairs on each O. Every atom has an octet, but FC(Cl) = <b>+3</b> and each O is −1. Big charges.',S([['Cl',130,88],['O',130,28,3],['O',130,150,3],['O',65,88,3],['O',195,88,3]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],{fc:1,br:'−'})],
+ ['Expand the octet','Cl is in period 3, so it can go past 8. Make 3 Cl=O double bonds: FC(Cl) = 7 − 0 − 7 = 0, and only one O is −1. Smaller charges, so this structure is preferred (with 4 resonance forms).',S([['Cl',130,88],['O',130,28,2],['O',130,150,3],['O',65,88,2],['O',195,88,2]],[[0,1,2],[0,2,1],[0,3,2],[0,4,2]],{fc:1,br:'−'})]
+ ]},
+{id:'xef4',f:'XeF_4',n:'Xenon tetrafluoride',total:36,
+ steps:[
+ ['Count valence electrons','Xe 8 + 4 × 7 = <b>36</b>.',S([['Xe',130,88],['F',130,28],['F',130,150],['F',65,88],['F',195,88]],[])],
+ ['Skeleton + F lone pairs','4 bonds + 3 pairs on each F = 32. That leaves 4 e⁻.',S([['Xe',130,88],['F',130,28,3],['F',130,150,3],['F',65,88,3],['F',195,88,3]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]])],
+ ['Two lone pairs on Xe','Xe ends up with 12 e⁻ (4 bonds + 2 pairs). All FC = 0.',S([['Xe',130,88,2],['F',130,28,3],['F',130,150,3],['F',65,88,3],['F',195,88,3]],[[0,1,1],[0,2,1],[0,3,1],[0,4,1]],{fc:1})]
+ ]},
+{id:'no',f:'NO',n:'Nitric oxide (radical)',total:11,
+ steps:[
+ ['Count valence electrons','N 5 + O 6 = <b>11</b>. Odd! Someone will have an unpaired electron.',S([['N',90,85],['O',170,85]],[])],
+ ['Skeleton + lone pairs','1 bond (2), O gets 3 pairs (6), leaving 3 → N gets 1 pair + 1 single electron.',S([['N',90,85,1,1],['O',170,85,3]],[[0,1,1]])],
+ ['Double bond','Move an O pair into the bond: N=O. O has 8, N has 7 (a radical). All FC = 0.',S([['N',90,85,1,1],['O',170,85,2]],[[0,1,2]],{fc:1})]
+ ]}
+];
+
+function fcOf(m,i){const at=m.a[i];let B=0;m.b.forEach(([x,y,o])=>{if(x===i||y===i)B+=o});return VAL[at.e]-2*at.lp-at.r-B}
+function lewisSVG(m){
+ const W=260,H=180,P=[];
+ const ang=(i)=>m.b.filter(b=>b[0]===i||b[1]===i).map(([x,y])=>{const o=m.a[x===i?y:x],a=m.a[i];return Math.atan2(o.y-a.y,o.x-a.x)});
+ const dist=(p,q)=>{let d=Math.abs(p-q)%(2*Math.PI);return d>Math.PI?2*Math.PI-d:d};
+ m.b.forEach(([i,j,o])=>{const A=m.a[i],B=m.a[j],dx=B.x-A.x,dy=B.y-A.y,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,nx=-uy,ny=ux,s=16,sa=A.e.length>1?22:16,sb=B.e.length>1?22:16;
+  for(let k=0;k<o;k++){const off=(k-(o-1)/2)*6;P.push(`<line x1="${A.x+ux*sa+nx*off}" y1="${A.y+uy*sa+ny*off}" x2="${B.x-ux*sb+nx*off}" y2="${B.y-uy*sb+ny*off}" class="bd"/>`)}});
+ m.a.forEach((at,i)=>{
+  const used=ang(i),n=at.lp+(at.r?1:0);let chosen=[];
+  if(n){const G=[...Array(24)].map((_,k)=>k*Math.PI/12);let bs=-1;
+   const score=set=>{const all=used.concat(set);let m=9,sm=0;for(let x=0;x<all.length;x++)for(let y=x+1;y<all.length;y++){const d=dist(all[x],all[y]);m=Math.min(m,d);sm+=d}m=m*100+sm;if(all.length<2)m=Math.PI-Math.abs(set[0]-3*Math.PI/2)/9;return m};
+   const rec=(start,set)=>{if(set.length===n){const sc=score(set);if(sc>bs+1e-9){bs=sc;chosen=set.slice()}return}for(let k=start;k<24;k++){set.push(G[k]);rec(k+1,set);set.pop()}};rec(0,[])}
+  chosen.forEach((a,k)=>{const r=at.e.length>1?23:16,cx=at.x+Math.cos(a)*r,cy=at.y+Math.sin(a)*r,px=-Math.sin(a)*3.6,py=Math.cos(a)*3.6;
+   if(k<at.lp)P.push(`<circle cx="${cx+px}" cy="${cy+py}" r="2.4" class="dt"/><circle cx="${cx-px}" cy="${cy-py}" r="2.4" class="dt"/>`);else P.push(`<circle cx="${cx}" cy="${cy}" r="2.6" class="dt rad"/>`)});
+  P.push(`<text x="${at.x}" y="${at.y+6}" class="el">${at.e}</text>`);
+  if(m.fc){const f=fcOf(m,i);if(f){P.push(`<text x="${at.x+14}" y="${at.y-12}" class="fc">${f>0?'+'+f:'−'+(-f)}</text>`)}}
+ });
+ if(m.br){P.push(`<text x="12" y="${H/2+18}" class="brk">[</text><text x="${W-26}" y="${H/2+18}" class="brk">]</text><text x="${W-4}" y="${H/2-30}" class="fc big">${m.br}</text>`)}
+ return `<svg viewBox="0 0 ${W} ${H}" class="lew" role="img" aria-label="Lewis structure">${P.join('')}</svg>`;
+}
+
+// ===== Endless practice: randomized question generators =====
+const h=6.626e-34,c=3.00e8,NA=6.022e23,RH=3.29e15,me=9.109e-31,mp=1.673e-27,mn=1.675e-27,hR=h*RH;
+const rnd=(a,b)=>a+Math.random()*(b-a),ri=(a,b)=>Math.floor(rnd(a,b+1)),pick=a=>a[ri(0,a.length-1)];
+const SUP={'-':'−'};
+function sci(x,sf=3){if(x===0)return'0';if(x<0)return '−'+sci(-x,sf);const e=Math.floor(Math.log10(x));if(e>=-2&&e<=4){const s=x.toPrecision(sf);return s.includes('e')?String(Number(s)):s}const m=(x/10**e).toFixed(sf-1);return `${m}×10^{${String(e).replace('-','−')}}`}
+function withUnit(x,base,sf=3){const P=[[1e9,'G'],[1e6,'M'],[1e3,'k'],[1,''],[1e-3,'m'],[1e-6,'µ'],[1e-9,'n'],[1e-12,'p'],[1e-15,'f']];for(const[f,p]of P){if(Math.abs(x)>=f*0.9999){return `${+(x/f).toPrecision(sf)} ${p}${base}`}}return sci(x,sf)+' '+base}
+function numOpts(ok,wrong,f){const s=f(ok),out=[s];for(const w of wrong.concat([ok*10,ok/10,ok*2,ok/2,ok*3.3])){const t=f(w);if(isFinite(w)&&w>0&&!out.includes(t))out.push(t);if(out.length>=5)break}return {o:out,a:0}}
+// element data for trends + configs
+const EL='H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr In Sn Sb Te I Xe Cs Ba'.split(' ');
+const PT={2:['Li','Be','B','C','N','O','F','Ne'],3:['Na','Mg','Al','Si','P','S','Cl','Ar'],4:['K','Ca','Ga','Ge','As','Se','Br','Kr'],5:['Rb','Sr','In','Sn','Sb','Te','I','Xe']};
+const GI={1:0,2:1,13:2,14:3,15:4,16:5,17:6,18:7};
+function config(Z){const ord=[['1s',2],['2s',2],['2p',6],['3s',2],['3p',6],['4s',2],['3d',10],['4p',6]];let left=Z,f={};for(const[s,m]of ord){if(left<=0)break;const k=Math.min(m,left);f[s]=k;left-=k}
+ if(Z===24){f['4s']=1;f['3d']=5}if(Z===29){f['4s']=1;f['3d']=10}return f}
+function cfgStr(f,Z){const core=Z>18?['[Ar]',['1s','2s','2p','3s','3p']]:Z>10?['[Ne]',['1s','2s','2p']]:Z>2?['[He]',['1s']]:['',[]];
+ const order=['1s','2s','2p','3s','3p','3d','4s','4p'];return core[0]+order.filter(s=>!core[1].includes(s)&&f[s]).map(s=>`${s}^${f[s]}`).join(' ')}
+const GENS=[
+{id:'ryd',t:'lit',f(){let n1=ri(1,3),n2=ri(n1+1,6);const nu=RH*(1/n1**2-1/n2**2),lam=c/nu;const bad1=c/(RH*(1/n1-1/n2)),bad2=c/(RH/n1**2);
+ return {q:`Wavelength of light emitted when a hydrogen electron drops from n = ${n2} to n = ${n1}?`,...numOpts(lam,[bad1,bad2,lam*4],x=>withUnit(x,'m')),ex:`ν = R(1/${n1}^2 − 1/${n2}^2) = ${sci(nu)} Hz. λ = c/ν = ${withUnit(lam,'m')}.`}}},
+{id:'pmol',t:'lit',f(){const l=ri(150,750);const E=h*c/(l*1e-9)*NA/1000;return {q:`Energy of one mole of photons with λ = ${l} nm?`,...numOpts(E,[E*1000,h*c/(l*1e-9)*1e3,E/NA*1e23],x=>sci(x)+' kJ'),ex:`E = hc/λ = ${sci(h*c/(l*1e-9))} J per photon. × N<sub>A</sub> = ${sci(E)} kJ.`}}},
+{id:'clam',t:'lit',f(){const [v,u,f]=pick([[ri(80,108),'MHz',1e6],[+rnd(1,9).toFixed(1),'GHz',1e9],[ri(400,900),'THz',1e12]]);const lam=c/(v*f);return {q:`Wavelength of ${v} ${u} radiation?`,...numOpts(lam,[lam*1000,v*f/c,lam/1e3],x=>withUnit(x,'m')),ex:`λ = c/ν = 3.00×10^8 / ${sci(v*f)} = ${withUnit(lam,'m')}.`}}},
+{id:'thr',t:'lit',f(){const l=ri(300,690),E=h*c/(l*1e-9);const col=l<450?'violet/blue':l<495?'blue':l<570?'green':l<590?'yellow':l<620?'orange':'red';
+ return {q:`A metal's threshold energy is ${sci(E)} J. What is the longest wavelength that can eject electrons?`,...numOpts(l*1e-9,[l*1e-9/2,E/h*1e-24,c/(E)*1e-27],x=>withUnit(x,'m')),ex:`λ = hc/E = ${l} nm (${col}). Anything shorter also works.`}}},
+{id:'dbg',t:'qua',f(){const [nm,m]=pick([['an electron',me],['a neutron',mn],['a proton',mp]]);const v=+(rnd(1,9)*10**ri(2,6)).toPrecision(2);const lam=h/(m*v);
+ return {q:`de Broglie wavelength of ${nm} moving at ${sci(v,2)} m/s?`,...numOpts(lam,[lam/(4*Math.PI),h/m,lam*1836],x=>withUnit(x,'m')),ex:`λ = h/(mv) = 6.626×10^{−34}/(${sci(m,4)} × ${sci(v,2)}) = ${withUnit(lam,'m')}.`}}},
+{id:'unc',t:'qua',f(){const dv=+(rnd(1,9)*10**ri(3,5)).toPrecision(2);const dx=h/(4*Math.PI*me*dv);return {q:`The speed of an electron is known to within Δv = ${sci(dv,2)} m/s. Minimum uncertainty in its position?`,...numOpts(dx,[dx*4*Math.PI,dx*2,h/(4*Math.PI*mp*dv)],x=>withUnit(x,'m',2)),ex:`Δx = h/(4π m Δv) = ${withUnit(dx,'m',2)}. (Forgetting the 4π gives an answer 12.6× too big.)`}}},
+{id:'hlev',t:'orb',f(){const n=ri(1,6),E=-hR/n**2;if(Math.random()<.5)return {q:`Energy of a hydrogen electron in the n = ${n} level?`,...numOpts(-E,[hR/n,hR*n**2,hR/(n+1)**2],x=>'−'+sci(x)+' J'),ex:`E = −2.18×10^{−18}/${n}^2 = ${sci(E)} J.`};
+ return {q:`A hydrogen electron has E = ${sci(E)} J. What is n?`,o:[1,2,3,4,5,6].map(String),a:n-1,ns:1,ex:`2.18×10^{−18} / ${sci(-E)} = ${n*n} = n^2, so n = ${n}.`}}},
+{id:'node',t:'orb',f(){const n=ri(2,5),l=ri(0,Math.min(n-1,3)),L='spdf'[l];const r=n-l-1,ans=`${r} radial, ${l} angular`,set=new Set([ans]);
+ for(const [a,b] of [[n-l,l],[l,r],[n-1,l],[r,l+1],[r+1,l-1]])if(a>=0&&b>=0)set.add(`${a} radial, ${b} angular`);return {q:`How many radial and angular nodes does a ${n}${L} orbital have?`,o:[...set].slice(0,4),a:0,ex:`radial = n − l − 1 = ${n} − ${l} − 1 = ${r}; angular = l = ${l}.`}}},
+{id:'nml',t:'orb',f(){const n=ri(2,5),l=ri(0,Math.min(n-1,3)),L='spdf'[l];if(Math.random()<.5)return {q:`How many orbitals are in the n = ${n} shell?`,...numOpts(n*n,[2*n*n,n,n*(n+1)/2],x=>String(Math.round(x))),ex:`n^2 = ${n*n} orbitals (holding ${2*n*n} electrons).`};
+ const ml=[];for(let m=-l;m<=l;m++)ml.push(m>0?'+'+m:m<0?'−'+(-m):'0');const w=[[0],[-1,0,1],[-2,-1,0,1,2],[-3,-2,-1,0,1,2,3]].map(a=>a.map(m=>m>0?'+'+m:m<0?'−'+(-m):'0').join(', '));
+ return {q:`Possible m<sub>l</sub> values for the ${n}${L} subshell?`,o:[ml.join(', '),...w.filter(x=>x!==ml.join(', '))],a:0,ex:`${L} means l = ${l}, so m<sub>l</sub> runs from −${l} to +${l}.`}}},
+{id:'cfg',t:'mea',f(){const Z=ri(3,36),E=EL[Z-1],ok=cfgStr(config(Z),Z),set=new Set([ok]);
+ if(Z===24)set.add(cfgStr({...config(Z),'4s':2,'3d':4},Z));if(Z===29)set.add(cfgStr({...config(Z),'4s':2,'3d':9},Z));
+ set.add(cfgStr(config(Z-1),Z));set.add(cfgStr(config(Z+1),Z));set.add(cfgStr(config(Z),Z).replace(/\[(\w+)\]/,m=>m==='[Ar]'?'[Ne]':m==='[Ne]'?'[He]':'[Ne]'));
+ return {q:`Ground-state electron configuration of ${E} (Z = ${Z})?`,o:[...set].slice(0,4),a:0,ex:`${E} has ${Z} electrons: ${ok}.${Z===24||Z===29?' (Exception: half-full or full 3d.)':''}`}}},
+{id:'ioncfg',t:'ion',f(){const [s,Z,q]=pick([['Ti',22,3],['Ti',22,2],['V',23,3],['Cr',24,3],['Mn',25,2],['Fe',26,2],['Fe',26,3],['Co',27,2],['Ni',28,2],['Cu',29,2],['Cu',29,1],['Zn',30,2]]);const d=Z-18-q;
+ const o=[`[Ar]3d^${d}`];if(d>=2)o.push(`[Ar]3d^${d-2} 4s^2`);if(d>=1)o.push(`[Ar]3d^${d-1} 4s^1`);o.push(`[Ar]3d^${Math.min(10,d+q)}`);
+ return {q:`Electron configuration of ${s}^${q>1?q:''}+?`,o:[...new Set(o.map(x=>x.replace('3d^0 ','').replace(' 4s^0','')))].slice(0,4),a:0,ex:`Neutral ${s} has ${Z-18} electrons past [Ar]. Remove ${q}, taking the 4s electrons first: [Ar]3d^${d}.`}}},
+{id:'rank',t:'rad',f(){return rankGen('rad')}},
+{id:'rankie',t:'ie',f(){return rankGen('ie')}},
+{id:'val',t:'lew',f(){const [f,n]=pick([['H_2O',8],['NH_3',8],['CH_4',8],['CO_2',16],['SO_2',18],['SO_3',24],['NO_2^−',18],['CO_3^2−',24],['PO_4^3−',32],['ClO_3^−',26],['PCl_5',40],['SF_6',48],['H_3O^+',8],['CN^−',10],['HNO_3',24],['C_2H_4',12],['N_2',10],['OH^−',8],['BrF_3',28],['ICl_4^−',36]]);
+ return {q:`Total number of valence electrons in ${f}?`,...numOpts(n,[n-2,n+2,n-1,n+1],x=>String(Math.round(x))),ex:`Add the group valence electrons, then add 1 per − charge or subtract 1 per + charge: ${n}.`}}},
+{id:'dil',t:'sol',f(){const M1=+rnd(1,6).toFixed(2),M2=ri(10,90),V2=pick([100,250,500,1000]);const V1=M2*1e-3*V2/M1;return {q:`What volume of ${M1} M stock is diluted to ${V2} mL to make ${M2} mM?`,...numOpts(V1,[V1*1000,M1*V2/M2,V1/1000],x=>withUnit(x/1000,'L')),ex:`V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub>/M<sub>1</sub> = (${M2}×10^{−3})(${V2})/${M1} = ${sci(V1)} mL.`}}},
+{id:'mm',t:'mol',f(){const [f,M]=pick([['H_2O',18.02],['CO_2',44.01],['NaCl',58.44],['CaCO_3',100.09],['H_2SO_4',98.08],['C_6H_12O_6',180.16],['NH_3',17.03],['MgCl_2',95.21]]);const g=+rnd(2,90).toFixed(1),n=g/M;
+ return {q:`How many moles are in ${g} g of ${f} (${M} g/mol)?`,...numOpts(n,[g*M,M/g,n*NA/1e23],x=>sci(x)+' mol'),ex:`n = m/M = ${g}/${M} = ${sci(n)} mol.`}}},
+{id:'pre',t:'unt',f(){const P={G:9,M:6,k:3,'':0,c:-2,m:-3,'µ':-6,n:-9,p:-12};const ks=['k','','m','µ','n','p','M'];let a=pick(ks),b=pick(ks.filter(x=>x!==a));const v=+rnd(1,9.9).toFixed(2)*10**ri(0,3);const u=pick(['g','m','L']);const ans=v*10**(P[a]-P[b]);
+ return {q:`Convert ${v} ${a}${u} to ${b}${u}.`,...numOpts(ans,[v*10**(P[b]-P[a]),ans*1000,ans/1000],x=>sci(x,3)+' '+b+u),ex:`1 ${a||''}${u} = 10^{${(P[a]-P[b]).toString().replace('-','−')}} ${b}${u}.`}}},
+{id:'lim',t:'yld',f(){const R=pick([{e:'2H_2 + O_2 → 2H_2O',A:['H_2',2.016,2],B:['O_2',32.00,1],P:['H_2O',18.02,2]},{e:'N_2 + 3H_2 → 2NH_3',A:['N_2',28.02,1],B:['H_2',2.016,3],P:['NH_3',17.03,2]},{e:'2Na + Cl_2 → 2NaCl',A:['Na',22.99,2],B:['Cl_2',70.90,1],P:['NaCl',58.44,2]},{e:'4Al + 3O_2 → 2Al_2O_3',A:['Al',26.98,4],B:['O_2',32.00,3],P:['Al_2O_3',101.96,2]},{e:'CH_4 + 2O_2 → CO_2 + 2H_2O',A:['CH_4',16.04,1],B:['O_2',32.00,2],P:['CO_2',44.01,1]}]);
+ const ga=+rnd(3,40).toFixed(1),gb=+rnd(3,60).toFixed(1),pa=ga/R.A[1]*R.P[2]/R.A[2],pb=gb/R.B[1]*R.P[2]/R.B[2];if(Math.abs(pa-pb)/Math.min(pa,pb)<.1)return GENS.find(g=>g.id==='lim').f();const lim=pa<pb?R.A[0]:R.B[0],oth=pa<pb?R.B[0]:R.A[0],mass=Math.min(pa,pb)*R.P[1],wrongM=Math.max(pa,pb)*R.P[1];
+ const o=[`${lim}; ${sci(mass)} g`,`${oth}; ${sci(wrongM)} g`,`${lim}; ${sci(wrongM)} g`,`${oth}; ${sci(mass)} g`];
+ return {q:`${R.e}. You start with ${ga} g ${R.A[0]} and ${gb} g ${R.B[0]}. Limiting reagent and theoretical mass of ${R.P[0]}?`,o:[...new Set(o)],a:0,ex:`${R.A[0]} could make ${sci(pa)} mol ${R.P[0]}; ${R.B[0]} could make ${sci(pb)} mol. The smaller one wins: ${lim} is limiting → ${sci(Math.min(pa,pb))} mol × ${R.P[1]} = ${sci(mass)} g.`}}}
+];
+function rankGen(kind){
+ const byPeriod=Math.random()<.5;let items,rule;
+ if(byPeriod){const p=ri(2,5);const g=kind==='ie'?[1,2,14,15,17,18]:[1,2,13,14,15,16,17];const ch=g.sort(()=>Math.random()-.5).slice(0,4).sort((a,b)=>a-b);items=ch.map(x=>PT[p][GI[x]]);
+  if(kind==='ie')items.reverse();rule=kind==='rad'?`Across period ${p}, Z<sub>eff</sub> increases, so radius shrinks left → right.`:`Across period ${p}, IE rises left → right (this set avoids the 13/16 exceptions).`;}
+ else{const g=pick(kind==='ie'?[1,2,17,18]:[1,2,14,15,16,17]);const ps=[2,3,4,5];items=ps.map(p=>PT[p][GI[g]]);rule=kind==='rad'?`Down group ${g}, each row adds a shell.`:`Down group ${g}, the outer electron is farther away and easier to remove.`;if(kind==='rad')items.reverse();}
+ return kind==='rad'?{type:'rank',q:'Rank by atomic radius.',items,hi:'Largest radius',lo:'Smallest radius',ex:rule}:{type:'rank',q:'Rank by first ionization energy.',items,hi:'Highest IE',lo:'Lowest IE',ex:rule};
+}
+
+{
+// ---------- helpers ----------
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fm=s=>String(s).replace(/\^\{([^}]*)\}/g,'<sup>$1</sup>').replace(/_\{([^}]*)\}/g,'<sub>$1</sub>').replace(/\^(\d*[+−])/g,'<sup>$1</sup>').replace(/\^(\d+)/g,'<sup>$1</sup>').replace(/_(\d+)/g,'<sub>$1</sub>');
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const hash=s=>{let x=0;for(const ch of s)x=(x*31+ch.charCodeAt(0))|0;return (x>>>0).toString(36)};
+const TP=Object.fromEntries(TOPICS.map((t,i)=>[t.id,{...t,i:i+1}]));
+const SECN={3:'New material (after Midterm 2)',2:'Midterm 2 material',1:'Midterm 1 material'};
+const ALLQ=QS.map(q=>({...q,id:q.t+':'+hash(q.q)}));
+const CARDX=CARDS.map(([t,f,b])=>({t,f,b,id:t+':'+hash(f)}));
+const FINAL=new Date(2026,11,5);
+const READ={mea:[['Topic 1E.1','Orbital energies'],['Topic 1E.2','The building-up principle']],bnd:[['Topic 2D.1','Electronegativity'],['Topic 2D.2','Polarizability'],['Topic 2D.3','Bond strengths'],['Topic 2D.4','Bond lengths']],vse:[['Topic 2E.1','The basic VSEPR model'],['Topic 2E.2','Molecules with lone pairs on the central atom'],['Topic 2E.3','Polar molecules']],
+ rad:[['Topic 1F.1','The general structure of the periodic table'],['Topic 1F.2','Atomic radius'],['Topic 1F.3','Ionic radius']],ie:[['Topic 1F.4','Ionization energy']],ea:[['Topic 1F.5','Electron affinity']],
+ ion:[['Topic 2A.1','The ions that elements form'],['Topic 2A.2','Lewis symbols'],['Topic 2A.3','The energetics of ionic bond formation'],['Topic 2A.4','Interactions between ions']],
+ lew:[['Topic 2B.1','Lewis structures'],['Topic 2B.2','Resonance'],['Topic 2B.3','Formal charge']],oct:[['Topic 2C.1','Radicals and biradicals'],['Topic 2C.2','Expanded valence shells'],['Topic 2C.3','Incomplete octets']],
+ yld:[['Fundamentals M','Limiting reactants']],lit:[['Topic 1A.2','Electromagnetic radiation'],['Topic 1A.3','Atomic spectra']],qua:[['Topic 1B.1','Radiation, quanta, and photons'],['Topic 1B.2','Wave–particle duality of matter'],['Topic 1B.3','The uncertainty principle']],
+ orb:[['Topic 1C','Wavefunctions and energy levels'],['Topic 1D','Atomic orbitals']],unt:[['Fundamentals A','Matter and energy (units, sig figs)']],mol:[['Fundamentals E','Moles and molar masses'],['Fundamentals F','Determination of chemical formulas'],['Fundamentals L','Reaction stoichiometry']],
+ atm:[['Fundamentals B','Elements and atoms'],['Fundamentals C','Compounds'],['Fundamentals D','Nomenclature']],sol:[['Fundamentals G','Mixtures and solutions'],['Fundamentals H','Chemical equations'],['Fundamentals I','Aqueous solutions and precipitation']]};
+const LEC={mea:'Lectures 20–21',rad:'Lectures 21–22',ie:'Lecture 22',ea:'Lecture 22',ion:'Lecture 23 (remote)',lew:'Lectures 23–24 (remote)',oct:'Lecture 24 (remote)',bnd:'this week\'s lectures',vse:'this week\'s lectures'};
+const S3=['mea','rad','ie','ea','ion','lew','oct','bnd','vse'],S2=['yld','lit','qua','orb'],S1=['unt','mol','atm','sol'];
+const PLAN=[
+ ['2026-11-24','Many-electron atoms','Start with the building blocks for everything new: shielding, Z<sub>eff</sub>, and electron configurations.',[{k:'do',x:'Skim the Lecture 20 slides and the first half of Lecture 21'},{k:'learn',t:'mea'},{k:'cards',ts:['mea']},{k:'quiz',ts:['mea'],n:12}]],
+ ['2026-11-25','Periodic trends','Radius, ionization energy, and electron affinity all come from Z<sub>eff</sub>.',[{k:'do',x:'Watch today\'s remote lecture, then send Claude the slides'},{k:'learn',t:'rad'},{k:'learn',t:'ie'},{k:'learn',t:'ea'},{k:'quiz',ts:['rad','ie','ea'],n:15},{k:'cards',ts:['rad','ie','ea']}]],
+ ['2026-11-26','Light day: lock in 1E + 1F','Thanksgiving. About an hour of flashcards and one mixed quiz.',[{k:'cards',ts:['mea','rad','ie','ea']},{k:'quiz',ts:['mea','rad','ie','ea'],n:15},{k:'weak'}]],
+ ['2026-11-27','Ionic bonding','Ion configurations, Lewis symbols, and lattice energy.',[{k:'learn',t:'ion'},{k:'cards',ts:['ion']},{k:'quiz',ts:['ion'],n:12}]],
+ ['2026-11-28','Lewis structures','The 7-step method, resonance, and formal charge. Draw along on paper.',[{k:'learn',t:'lew'},{k:'lewis',x:'NH₄⁺, CO₂, HCN, CH₂O, NO₃⁻, O₃, NCO⁻'},{k:'quiz',ts:['lew'],n:12}]],
+ ['2026-11-29','Beyond the octet + checkpoint','Finish the new material, then take a 12-question section 3 checkpoint.',[{k:'learn',t:'oct'},{k:'lewis',x:'BF₃, I₃⁻, SF₄, ClO₄⁻, XeF₄, NO'},{k:'quiz',ts:['oct'],n:10},{k:'mock',sec:3}]],
+ ['2026-11-30','Midterm 2 review, part 1','Limiting reagents and light. Calculator problems: write out every step.',[{k:'do',x:'Watch today\'s lecture, then send Claude the slides'},{k:'learn',t:'yld'},{k:'learn',t:'lit'},{k:'quiz',ts:['yld','lit'],n:15},{k:'cards',ts:['yld','lit']}]],
+ ['2026-12-01','Midterm 2 review, part 2','Photons, matter waves, and quantum numbers, then retake Midterm 2 as a mock section.',[{k:'learn',t:'qua'},{k:'learn',t:'orb'},{k:'quiz',ts:['qua','orb'],n:15},{k:'mock',sec:2},{k:'weak'}]],
+ ['2026-12-02','Midterm 1 review','Fast conversions and stoichiometry. Aim to beat your 76%.',[{k:'do',x:'Watch today\'s lecture, then send Claude the slides'},{k:'learn',t:'unt'},{k:'learn',t:'mol'},{k:'learn',t:'atm'},{k:'learn',t:'sol'},{k:'quiz',ts:S1,n:15},{k:'mock',sec:1}]],
+ ['2026-12-03','Bond properties + VSEPR','Topics 2D and 2E are in your textbook pages and likely in this week\'s lectures. Then go after your weak spots.',[{k:'learn',t:'bnd'},{k:'learn',t:'vse'},{k:'quiz',ts:['bnd','vse'],n:15},{k:'weak'},{k:'cards',ts:S3}]],
+ ['2026-12-04','Full mock final','Do it in one sitting, without notes. Then review every miss.',[{k:'mock',sec:0},{k:'weak'},{k:'do',x:'Read the cheat sheet once, slowly'}]],
+ ['2026-12-05','Final exam day','No new material. Warm up and stay calm.',[{k:'cards',ts:'weak'},{k:'do',x:'Skim the cheat sheet (15 min)'},{k:'do',x:'Pack a scientific (non-graphing) calculator and pencils, and confirm your exam time and room'}]]
+].map(([d,title,why,tasks])=>({d,title,why,tasks}));
+const KEY='chem6a-final-v1';
+let ST;try{ST=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){ST={}}
+ST={q:{},tp:{},cards:{},done:{},todo:{},read:{},seen:{},...ST};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}};
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const TODAY=iso(new Date());
+const pd=s=>{const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const daysLeft=Math.max(0,Math.ceil((FINAL-pd(TODAY))/864e5));
+let day=PLAN.find(p=>p.d===TODAY)?TODAY:(TODAY<PLAN[0].d?PLAN[0].d:PLAN[PLAN.length-1].d);
+const acc=t=>{const s=ST.tp[t];return s&&s.c+s.w?s.c/(s.c+s.w):null};
+const attempts=t=>{const s=ST.tp[t];return s?s.c+s.w:0};
+const weakQs=()=>ALLQ.filter(q=>ST.q[q.id]&&ST.q[q.id].last===false);
+const weakGens=()=>GENS.filter(g=>ST.q['g:'+g.id]&&ST.q['g:'+g.id].last===false);
+const weakTopics=()=>TOPICS.map(t=>({t:t.id,a:acc(t.id),n:attempts(t.id)})).filter(x=>x.n>=3&&x.a<.75).sort((a,b)=>a.a-b.a);
+function rec(key,t,ok){const o=ST.q[key]||{c:0,w:0};o[ok?'c':'w']++;o.last=ok;o.at=Date.now();ST.q[key]=o;const s=ST.tp[t]||{c:0,w:0};s[ok?'c':'w']++;ST.tp[t]=s;save()}
+const tlabel=t=>`<span class="dot s${TP[t].sec}"></span>${TP[t].n}`;
+
+// ---------- navigation ----------
+const VIEWS=['daily','learn','practice','cards','lewis','cheat','progress'];
+let view='daily',sub=null,session=null,deck=null;
+function go(v,s=null){view=v;sub=s;if(location.hash!=='#'+v)history.replaceState(null,'','#'+v);render();window.scrollTo(0,0)}
+function render(){document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===view));
+ $('#count').innerHTML=daysLeft?`<b>${daysLeft}</b> day${daysLeft>1?'s':''} to the final`:'Final is today. You\'ve got this.';
+ const R={daily:rDaily,learn:rLearn,practice:rPractice,cards:rCards,lewis:rLewis,cheat:rCheat,progress:rProgress}[view];$('#main').innerHTML=R();bindAfter()}
+let after=[];const bindAfter=()=>{after.forEach(f=>f());after=[]};
+
+// ---------- DAILY ----------
+function taskInfo(k){
+ if(k.k==='learn')return [`Read the lesson: ${TP[k.t].n}`,'Open',()=>go('learn',k.t)];
+ if(k.k==='quiz')return [`Practice ${k.n} questions: ${k.ts.map(t=>TP[t].n).join(', ')}`,'Start',()=>startQuiz(k.ts,k.n,'Practice')];
+ if(k.k==='cards')return [k.ts==='weak'?'Flashcards: the ones you marked "again"':`Flashcards: ${k.ts.map(t=>TP[t].n).join(', ')}`,'Flip',()=>startDeck(k.ts)];
+ if(k.k==='lewis')return [`Lewis lab: ${k.x}`,'Open',()=>go('lewis')];
+ if(k.k==='mock')return [k.sec?`Mock final, section ${k.sec} (12 questions, ${k.sec===3?'new material':'Midterm '+k.sec+' material'})`:'Full mock final: 36 questions across all three sections','Start',()=>startMock(k.sec)];
+ if(k.k==='weak')return ['Review your weak spots','Review',()=>startWeak()];
+ return [k.x,null,null]}
+let launchedFrom=null;
+function markTask(match){const p=PLAN.find(p=>p.d===launchedFrom);if(!p)return;p.tasks.forEach((k,i)=>{if(match(k)){(ST.done[p.d]=ST.done[p.d]||{})[i]=true}});save()}
+function dayPct(p){const n=p.tasks.length,d=Object.values(ST.done[p.d]||{}).filter(Boolean).length;return Math.min(1,d/n)}
+function rDaily(){
+ const p=PLAN.find(x=>x.d===day),idx=PLAN.indexOf(p),dd=pd(p.d);
+ const strip=PLAN.map((x,i)=>{const d=pd(x.d);return `<button class="day ${x.d===day?'on':''} ${x.d===TODAY?'today':''}" data-day="${x.d}"><small>${d.toLocaleDateString('en-US',{weekday:'short'})}</small><b>${d.getDate()}</b><i style="--p:${dayPct(x)*100}%"></i></button>`}).join('');
+ const topics=[...new Set(p.tasks.filter(k=>k.k==='learn').map(k=>k.t))];
+ const rd=topics.flatMap(t=>READ[t].map((r,j)=>({id:t+j,sec:r[0],name:r[1],lec:LEC[t]}))),rdone=ST.read[p.d]||{};
+ const tasks=p.tasks.map((k,i)=>{const[txt,btn]=taskInfo(k),done=(ST.done[p.d]||{})[i];return `<li class="${done?'done':''}"><label class="chk"><input type="checkbox" data-task="${i}" ${done?'checked':''}><span>${fm(txt)}</span></label>${btn?`<button class="sm" data-go="${i}">${btn}</button>`:''}</li>`}).join('');
+ const wq=weakQs().length+weakGens().length,wt=weakTopics().slice(0,3);
+ const todos=(ST.todo[p.d]||[]),carry=PLAN.filter(x=>x.d<p.d).flatMap(x=>(ST.todo[x.d]||[]).filter(t=>!t.done).map(t=>({...t,from:x.d})));
+ const lastD=PLAN[idx-1];
+ return `<section class="band head"><div class="strip scroll">${strip}</div>
+ <div class="dhead"><div><p class="eyebrow">${dd.toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'})} · Day ${idx+1} of ${PLAN.length}</p><h1>${p.title}</h1><p class="why">${p.why}</p></div>
+ <div class="ring" style="--p:${dayPct(p)*100}"><b>${Math.round(dayPct(p)*100)}%</b><small>of today done</small></div></div></section>
+ <section class="band grid2">
+ <div class="card"><h2>Today's plan</h2><ul class="tasks">${tasks}</ul></div>
+ <div class="card"><h2>Review</h2>${wq?`<p>You have <b>${wq}</b> question${wq>1?'s':''} you got wrong the last time you saw ${wq>1?'them':'it'}.</p>`:'<p>Nothing to review yet. Questions you get wrong will show up here.</p>'}
+  ${wt.length?`<p class="muted">Weakest topics so far:</p><ul class="wt">${wt.map(x=>`<li>${tlabel(x.t)} <b>${Math.round(x.a*100)}%</b></li>`).join('')}</ul>`:''}
+  <div class="row"><button class="btn" id="dWeak" ${wq||wt.length?'':'disabled'}>Review weak spots</button>${lastD?`<button class="btn ghost" id="dPrev">Redo yesterday's quiz topics</button>`:''}</div></div>
+ ${rd.length?`<div class="card"><h2>Recommended reading</h2><p class="muted">From the textbook (Atkins, <i>Chemical Principles</i> 7th ed.). Match by title if your section numbers differ.</p><ul class="read">${rd.map(r=>`<li><label class="chk"><input type="checkbox" data-read="${r.id}" ${rdone[r.id]?'checked':''}><span><b>${r.sec}</b> ${r.name}${r.lec?`<small>Slides: ${r.lec}</small>`:''}</span></label></li>`).join('')}</ul></div>`:''}
+ <div class="card"><h2>My to-dos</h2><form id="tdf" class="row"><input id="tdi" placeholder="Add something for this day…" autocomplete="off"><button class="btn">Add</button></form>
+  <ul class="todo">${todos.map((t,i)=>`<li class="${t.done?'done':''}"><label class="chk"><input type="checkbox" data-td="${i}" ${t.done?'checked':''}><span>${esc(t.x)}</span></label><button class="x" data-tdx="${i}" aria-label="Delete">×</button></li>`).join('')||'<li class="muted">Nothing yet.</li>'}</ul>
+  ${carry.length?`<p class="muted">Carried over from earlier days</p><ul class="todo">${carry.map(t=>`<li><label class="chk"><input type="checkbox" data-cf="${t.from}|${t.id}"><span>${esc(t.x)} <small>${pd(t.from).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</small></span></label></li>`).join('')}</ul>`:''}</div>
+ </section>`;
+}
+after.push(()=>{});
+function bindDaily(){
+ document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{day=b.dataset.day;render()});
+ const on=document.querySelector('.day.on');on&&on.scrollIntoView({inline:'center',block:'nearest'});
+ const p=PLAN.find(x=>x.d===day);
+ document.querySelectorAll('[data-task]').forEach(c=>c.onchange=()=>{(ST.done[day]=ST.done[day]||{})[c.dataset.task]=c.checked;save();render()});
+ document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{launchedFrom=day;const k=p.tasks[+b.dataset.go];if(k.k==='learn'||k.k==='lewis'){(ST.done[day]=ST.done[day]||{})[b.dataset.go]=true;save()}taskInfo(k)[2]()});
+ document.querySelectorAll('[data-read]').forEach(c=>c.onchange=()=>{(ST.read[day]=ST.read[day]||{})[c.dataset.read]=c.checked;save()});
+ $('#tdf').onsubmit=e=>{e.preventDefault();const v=$('#tdi').value.trim();if(!v)return;(ST.todo[day]=ST.todo[day]||[]).push({id:Date.now().toString(36),x:v,done:false});save();render();$('#tdi').focus()};
+ document.querySelectorAll('[data-td]').forEach(c=>c.onchange=()=>{ST.todo[day][c.dataset.td].done=c.checked;save();render()});
+ document.querySelectorAll('[data-tdx]').forEach(b=>b.onclick=()=>{ST.todo[day].splice(+b.dataset.tdx,1);save();render()});
+ document.querySelectorAll('[data-cf]').forEach(c=>c.onchange=()=>{const[f,id]=c.dataset.cf.split('|');const t=(ST.todo[f]||[]).find(t=>t.id===id);if(t)t.done=true;save();render()});
+ $('#dWeak')&&($('#dWeak').onclick=()=>{launchedFrom=day;startWeak()});
+ $('#dPrev')&&($('#dPrev').onclick=()=>{const prev=PLAN[PLAN.indexOf(p)-1];const q=prev.tasks.find(k=>k.k==='quiz');launchedFrom=null;startQuiz(q?q.ts:S3,10,'Yesterday, again')});
+}
+
+// ---------- LEARN ----------
+function tile(t){const a=acc(t.id),n=attempts(t.id);return `<button class="tile s${t.sec}" data-topic="${t.id}"><span class="num">${t.i}</span><span class="sym">${t.sym}</span><span class="nm">${t.n}</span><span class="ms"><i style="width:${a==null?0:a*100}%"></i></span><span class="pc">${a==null?'not started':Math.round(a*100)+'% · '+n+' tries'}</span></button>`}
+function rLearn(){
+ if(sub){const t=TP[sub];const qn=ALLQ.filter(q=>q.t===t.id).length+GENS.filter(g=>g.t===t.id).length;
+  return `<section class="band lesson"><button class="back" id="bk">← All topics</button><p class="eyebrow"><span class="dot s${t.sec}"></span>Final section ${t.sec} · ${t.src}</p><h1>${t.n}</h1>
+  ${READ[t.id]?`<p class="refs">Read: ${READ[t.id].map(r=>`<b>${r[0]}</b> ${r[1]}`).join(' · ')}${LEC[t.id]?` · Slides: ${LEC[t.id]}`:''}</p>`:''}
+  ${t.lesson.map(([h,b],i)=>`<article class="blk"><h2><span>${i+1}</span>${h}</h2><div>${fm(b)}</div></article>`).join('')}
+  <div class="row end"><button class="btn" id="lq">Practice this topic (10)</button><button class="btn ghost" id="lc">Flashcards</button>${t.id==='lew'||t.id==='oct'?'<button class="btn ghost" id="ll">Open Lewis lab</button>':''}</div><p class="muted">${qn} question types available for this topic, including endless generated problems.</p></section>`}
+ return `<section class="band"><h1>Learn</h1><p class="why">Every topic on the final, grouped the way the exam is split. Start with the new material: it's the section you haven't been tested on yet.</p>
+ ${[3,2,1].map(s=>`<h2 class="sech"><span class="dot s${s}"></span>Section ${s===3?'3':s} · ${SECN[s]}</h2><div class="tiles">${TOPICS.filter(t=>t.sec===s).map(t=>tile(TP[t.id])).join('')}</div>`).join('')}</section>`}
+function bindLearn(){document.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>go(view==='learn'?'learn':'learn',b.dataset.topic));
+ if(sub){ST.seen[sub]=1;save();$('#bk').onclick=()=>go('learn');$('#lq').onclick=()=>{launchedFrom=launchedFrom||day;startQuiz([sub],10,TP[sub].n)};$('#lc').onclick=()=>startDeck([sub]);$('#ll')&&($('#ll').onclick=()=>go('lewis'))}}
+
+// ---------- QUIZ ENGINE ----------
+function pool(ts){return [...ALLQ.filter(q=>ts.includes(q.t)).map(q=>({s:q})),...GENS.filter(g=>ts.includes(g.t)).map(g=>({g}))]}
+function build(ts,n){let p=shuf(pool(ts));const out=[];
+ // prefer unseen + previously wrong, keep gens to ~40%
+ p.sort((a,b)=>score(b)-score(a));const gens=p.filter(x=>x.g),st=p.filter(x=>x.s);let gi=0,si=0;
+ while(out.length<n&&(si<st.length||gens.length)){if((out.length%5===2||out.length%5===4||si>=st.length)&&gens.length){out.push({g:gens[gi%gens.length].g});gi++}else out.push(st[si++])}
+ return shuf(out)}
+function score(x){const k=x.s?x.s.id:'g:'+x.g.id,o=ST.q[k];if(!o)return 2+Math.random();if(o.last===false)return 3+Math.random();return Math.random()}
+function startQuiz(ts,n,title){session={title,items:build(ts,n),i:0,res:[],ts,kind:'quiz'};go('practice','run')}
+function startMock(sec){const secs=sec?[sec]:[1,2,3];let items=[];secs.forEach(s=>{const ts=TOPICS.filter(t=>t.sec===s).map(t=>t.id);items=items.concat(build(ts,12).map(x=>({...x,sec:s})))});
+ session={title:sec?`Mock final · section ${sec}`:'Full mock final',items:sec?items:items,i:0,res:[],kind:'mock',sec,start:Date.now()};go('practice','run')}
+function startWeak(){let items=[...weakQs().map(q=>({s:q})),...weakGens().map(g=>({g}))];weakTopics().forEach(x=>{items=items.concat(build([x.t],3))});
+ if(!items.length)items=build(S3,10);session={title:'Weak spots',items:shuf(items).slice(0,20),i:0,res:[],kind:'weak'};go('practice','run')}
+function inst(it){if(!it.q){if(it.s)it.q={...it.s};else{const r=it.g.f();it.q={...r,t:it.g.t,id:'g:'+it.g.id}}
+  if(it.q.type!=='rank'){const idx=it.q.o.map((_,i)=>i);it.ord=it.q.ns?idx:shuf(idx)}else{it.pool=shuf(it.q.items.map((_,i)=>i));it.pick=[]}}return it.q}
+function rRun(){const s=session,it=s.items[s.i],q=inst(it),T=TP[q.t];
+ const prog=`<div class="prog"><i style="width:${s.i/s.items.length*100}%"></i></div><p class="eyebrow">${esc(s.title)} · ${s.i+1} of ${s.items.length} · ${tlabel(q.t)}${q.src?` · <b>${q.src}</b>`:''}</p>`;
+ let body;
+ if(q.type==='rank'){body=`<div class="rank"><p class="hl">${q.hi} ↑</p><ol class="slots">${q.items.map((_,i)=>{const v=it.pick[i];return `<li>${v==null?'<span class="ph">tap below</span>':`<button class="chip on" data-un="${i}">${fm(q.items[v])}</button>`}</li>`}).join('')}</ol><p class="hl">${q.lo} ↓</p>
+  <div class="bank">${it.pool.filter(i=>!it.pick.includes(i)).map(i=>`<button class="chip" data-pk="${i}">${fm(q.items[i])}</button>`).join('')}</div>${it.done?'':`<button class="btn" id="chk" ${it.pick.length===q.items.length?'':'disabled'}>Check</button>`}</div>`}
+ else body=`<div class="opts">${it.ord.map((oi,k)=>{let c='';if(it.done){if(oi===q.a)c='ok';else if(oi===it.ans)c='bad'}return `<button class="opt ${c}" data-o="${oi}" ${it.done?'disabled':''}><span>${'abcde'[k]}</span>${fm(q.o[oi])}</button>`}).join('')}</div>`;
+ const fb=it.done?`<div class="fb ${it.ok?'ok':'bad'}"><b>${it.ok?'Correct.':'Not quite.'}</b> ${q.type==='rank'&&!it.ok?`Correct order: ${q.items.map(fm).join(' > ')}. `:''}${fm(q.ex||'')}</div><div class="row end"><button class="btn" id="nx">${s.i+1<s.items.length?'Next':'See results'}</button></div>`:'';
+ return `<section class="band quiz">${prog}<div class="qq">${fm(q.q)}</div>${body}${fb}<button class="back" id="quit">End session</button></section>`}
+function answer(ok,ans){const s=session,it=s.items[s.i],q=it.q;it.done=1;it.ok=ok;it.ans=ans;s.res.push({t:q.t,ok,sec:it.sec||TP[q.t].sec});rec(q.id,q.t,ok);render()}
+function bindRun(){const s=session,it=s.items[s.i],q=it.q;
+ document.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>answer(+b.dataset.o===q.a,+b.dataset.o));
+ document.querySelectorAll('[data-pk]').forEach(b=>b.onclick=()=>{if(it.done)return;it.pick.push(+b.dataset.pk);render()});
+ document.querySelectorAll('[data-un]').forEach(b=>b.onclick=()=>{if(it.done)return;it.pick.splice(+b.dataset.un,1);render()});
+ $('#chk')&&($('#chk').onclick=()=>answer(it.pick.every((v,i)=>v===i)));
+ $('#nx')&&($('#nx').onclick=()=>{s.i++;if(s.i>=s.items.length)finish();else{render();window.scrollTo(0,0)}});
+ $('#quit').onclick=()=>{s.items=s.items.slice(0,Math.max(s.res.length,1));if(!s.res.length){session=null;go('practice')}else finish()}}
+function finish(){const s=session;s.over=true;
+ if(s.kind==='quiz')markTask(k=>k.k==='quiz'&&k.ts.every(t=>s.ts.includes(t)));if(s.kind==='mock')markTask(k=>k.k==='mock'&&k.sec===s.sec);if(s.kind==='weak')markTask(k=>k.k==='weak');
+ sub='done';render()}
+function rDone(){const s=session,c=s.res.filter(r=>r.ok).length,n=s.res.length;
+ const bySec=[1,2,3].map(x=>{const r=s.res.filter(y=>y.sec===x);return {x,c:r.filter(y=>y.ok).length,n:r.length}}).filter(x=>x.n);
+ const prev={1:76,2:80};const misses=s.items.filter(it=>it.done&&!it.ok);
+ return `<section class="band"><p class="eyebrow">${esc(s.title)} · finished</p><h1>${c} / ${n} correct (${Math.round(c/n*100)}%)</h1>
+ ${s.kind==='mock'?`<div class="secres">${bySec.map(b=>{const p=Math.round(b.c/b.n*100);return `<div class="card s${b.x}"><p>Section ${b.x}</p><b>${p}%</b><small>${prev[b.x]?(p>prev[b.x]?`Beats your Midterm ${b.x} score (${prev[b.x]}%). This section would replace it.`:`Your Midterm ${b.x} score was ${prev[b.x]}%. Keep going.`):'New material: no midterm to replace.'}</small></div>`}).join('')}</div>`:''}
+ ${misses.length?`<h2>Review your misses</h2>${misses.map(it=>`<div class="miss"><p class="eyebrow">${tlabel(it.q.t)}</p><div>${fm(it.q.q)}</div><p class="ans">Answer: <b>${it.q.type==='rank'?it.q.items.map(fm).join(' > '):fm(it.q.o[it.q.a])}</b></p><p class="muted">${fm(it.q.ex||'')}</p></div>`).join('')}`:'<p class="why">Perfect run.</p>'}
+ <div class="row"><button class="btn" id="again">Practice weak spots</button><button class="btn ghost" id="home">Back to today</button></div></section>`}
+function bindDone(){$('#again').onclick=()=>startWeak();$('#home').onclick=()=>{session=null;go('daily')}}
+
+// ---------- PRACTICE HOME ----------
+function rPractice(){if(sub==='run'&&session)return rRun();if(sub==='done'&&session)return rDone();
+ const wq=weakQs().length+weakGens().length;
+ return `<section class="band"><h1>Practice</h1><p class="why">All multiple choice like the final, plus ranking questions and endless generated calculation problems.</p>
+ <div class="big3"><button class="bigb s0" id="pW"><b>Weak spots</b><span>${wq} missed question${wq===1?'':'s'} + your lowest topics</span></button>
+ <button class="bigb s3" id="pM"><b>Full mock final</b><span>36 questions, 12 per section, scored by section</span></button>
+ <button class="bigb s2" id="pN"><b>New material mix</b><span>20 questions from Topics 1E–2E</span></button></div>
+ <h2>Mock one section</h2><div class="row">${[3,2,1].map(s=>`<button class="btn ghost" data-ms="${s}"><span class="dot s${s}"></span>Section ${s}</button>`).join('')}</div>
+ <h2>By topic</h2><div class="tiles">${TOPICS.map(t=>tile(TP[t.id])).join('')}</div></section>`}
+function bindPractice(){if(sub==='run')return bindRun();if(sub==='done')return bindDone();
+ $('#pW').onclick=()=>startWeak();$('#pM').onclick=()=>startMock(0);$('#pN').onclick=()=>startQuiz(S3,20,'New material mix');
+ document.querySelectorAll('[data-ms]').forEach(b=>b.onclick=()=>startMock(+b.dataset.ms));
+ document.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>startQuiz([b.dataset.topic],10,TP[b.dataset.topic].n))}
+
+// ---------- FLASHCARDS ----------
+function startDeck(ts){let c=ts==='weak'?CARDX.filter(x=>ST.cards[x.id]&&ST.cards[x.id].again):CARDX.filter(x=>ts.includes(x.t));if(!c.length)c=CARDX.filter(x=>S3.includes(x.t));
+ c.sort((a,b)=>((ST.cards[a.id]||{}).box||0)-((ST.cards[b.id]||{}).box||0)||Math.random()-.5);deck={ts,cards:c,i:0,flip:false,known:0};go('cards','run')}
+function rCards(){if(sub==='run'&&deck){const d=deck;if(d.i>=d.cards.length)return `<section class="band"><h1>Deck done</h1><p class="why">${d.known} of ${d.cards.length} marked "got it". The "again" cards are saved, so they'll come back first.</p><div class="row"><button class="btn" id="cAgain">Run the deck again</button><button class="btn ghost" id="cHome">All decks</button></div></section>`;
+  const c=d.cards[d.i];return `<section class="band fc"><p class="eyebrow">${d.i+1} / ${d.cards.length} · ${tlabel(c.t)}</p><button class="flash ${d.flip?'flip':''} s${TP[c.t].sec}" id="flip"><span class="face">${fm(c.f)}</span>${d.flip?`<span class="back">${fm(c.b)}</span>`:'<small>Tap to flip</small>'}</button>
+  <div class="row center">${d.flip?'<button class="btn bad" id="cNo">Again</button><button class="btn" id="cYes">Got it</button>':'<button class="btn ghost" id="flip2">Show answer</button>'}</div><button class="back" id="cQuit">End deck</button></section>`}
+ const nAgain=CARDX.filter(x=>ST.cards[x.id]&&ST.cards[x.id].again).length;
+ return `<section class="band"><h1>Flashcards</h1><p class="why">Tap a topic to run its deck. Cards you mark "again" come back first, and they also fill the "again" deck.</p>
+ <div class="row"><button class="btn" id="cNew">All new material (${CARDX.filter(x=>S3.includes(x.t)).length})</button><button class="btn ghost" id="cW" ${nAgain?'':'disabled'}>"Again" pile (${nAgain})</button><button class="btn ghost" id="cAll">Everything (${CARDX.length})</button></div>
+ <div class="tiles">${TOPICS.map(t=>tile(TP[t.id])).join('')}</div></section>`}
+function bindCards(){if(sub==='run'&&deck){const d=deck;
+ if(d.i>=d.cards.length){$('#cAgain').onclick=()=>startDeck(d.ts);$('#cHome').onclick=()=>go('cards');markTask(k=>k.k==='cards'&&(k.ts===d.ts||(Array.isArray(k.ts)&&Array.isArray(d.ts)&&k.ts.every(t=>d.ts.includes(t)))));return}
+ const fl=()=>{d.flip=true;render()};$('#flip').onclick=fl;$('#flip2')&&($('#flip2').onclick=fl);
+ const mark=ok=>{const c=d.cards[d.i],o=ST.cards[c.id]||{box:0};o.box=ok?(o.box||0)+1:0;o.again=!ok;ST.cards[c.id]=o;save();if(ok)d.known++;d.i++;d.flip=false;render()};
+ $('#cYes')&&($('#cYes').onclick=()=>mark(true));$('#cNo')&&($('#cNo').onclick=()=>mark(false));$('#cQuit').onclick=()=>{deck=null;go('cards')};return}
+ $('#cNew').onclick=()=>startDeck(S3);$('#cW').onclick=()=>startDeck('weak');$('#cAll').onclick=()=>startDeck(TOPICS.map(t=>t.id));
+ document.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>startDeck([b.dataset.topic]))}
+
+// ---------- LEWIS LAB ----------
+let lw={m:0,s:0,hide:false,shown:{}};
+function rLewis(){const m=MOLS[lw.m],st=m.steps[lw.s],hidden=lw.hide&&!lw.shown[lw.m+'-'+lw.s];
+ return `<section class="band"><h1>Lewis lab</h1><p class="why">Step through each structure. Turn on "try it first" to draw each step on paper before you reveal it.</p>
+ <div class="mols scroll">${MOLS.map((x,i)=>`<button class="chip ${i===lw.m?'on':''}" data-m="${i}">${fm(x.f)}</button>`).join('')}</div>
+ <div class="lab"><div class="pic card">${hidden?'<button class="reveal" id="rv">Tap to reveal this step</button>':lewisSVG(st[2])}</div>
+ <div class="card"><p class="eyebrow">${m.n} · ${m.total} valence electrons</p><h2>Step ${lw.s+1} of ${m.steps.length}: ${st[0]}</h2><p>${hidden?'<span class="muted">Work it out, then reveal.</span>':fm(st[1])}</p>
+ <div class="row"><button class="btn ghost" id="lp" ${lw.s?'':'disabled'}>← Back</button><button class="btn" id="ln">${lw.s+1<m.steps.length?'Next step →':(lw.m+1<MOLS.length?'Next molecule →':'Done')}</button></div>
+ <label class="chk tog"><input type="checkbox" id="lh" ${lw.hide?'checked':''}><span>Try it first (hide each step until I tap)</span></label>
+ <p class="muted">Formal charges are shown as small numbers. No number means 0.</p></div></div></section>`}
+function bindLewis(){document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{lw.m=+b.dataset.m;lw.s=0;render()});
+ $('#lp').onclick=()=>{lw.s--;render()};$('#ln').onclick=()=>{const m=MOLS[lw.m];if(lw.s+1<m.steps.length)lw.s++;else if(lw.m+1<MOLS.length){lw.m++;lw.s=0}render()};
+ $('#lh').onchange=e=>{lw.hide=e.target.checked;render()};$('#rv')&&($('#rv').onclick=()=>{lw.shown[lw.m+'-'+lw.s]=1;render()});
+ const on=document.querySelector('.mols .on');on&&on.scrollIntoView({inline:'center',block:'nearest'})}
+
+// ---------- CHEAT SHEET ----------
+function trendSVG(){const W=600,H=250,ox=30,oy=40,cw=24,ch=26;const cells=[];
+ const rows=[[1,18],[1,2,13,14,15,16,17,18],[1,2,13,14,15,16,17,18],[...Array(18)].map((_,i)=>i+1),[...Array(18)].map((_,i)=>i+1),[...Array(18)].map((_,i)=>i+1)];
+ rows.forEach((r,ri)=>r.forEach(g=>{const b=g<=2?'sb':g>=13?'pb':'db';cells.push(`<rect x="${ox+(g-1)*cw}" y="${oy+ri*ch}" width="${cw-3}" height="${ch-3}" rx="3" class="${b}"/>`)}));
+ return `<svg viewBox="0 0 ${W} ${H}" class="trend" role="img" aria-label="Periodic trends">
+ <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="ahd"/></marker></defs>${cells.join('')}
+ <line x1="${ox+20}" y1="${oy+6*ch+20}" x2="${ox+17*cw}" y2="${oy+6*ch+20}" class="ar a1" marker-end="url(#ah)"/>
+ <text x="${ox+9*cw}" y="${oy+6*ch+40}" class="tl">Z<tspan baseline-shift="sub" font-size="10">eff</tspan>, IE, EA ↑ · radius ↓</text>
+ <line x1="${ox+18*cw+14}" y1="${oy+6*ch}" x2="${ox+18*cw+14}" y2="${oy+4}" class="ar a2" marker-end="url(#ah)"/>
+ <text x="${ox+18*cw+26}" y="${oy+70}" class="tl st">IE, EA ↑</text><text x="${ox+18*cw+26}" y="${oy+88}" class="tl st">radius ↓</text>
+ <text x="${ox}" y="${oy-14}" class="tl st">Biggest atoms: bottom-left · highest IE: top-right</text></svg>`}
+function rCheat(){const eq=[['c = λν','c = 3.00×10^8 m/s'],['E = hν = hc/λ','h = 6.626×10^{−34} J·s'],['ν = R(1/n_{1}^2 − 1/n_{2}^2)','R = 3.29×10^{15} Hz'],['E_{n} = −hR/n^2','hR = 2.18×10^{−18} J'],['λ = h/(mv)','de Broglie'],['Δp·Δx ≥ h/(4π)','Δp = mΔv'],['radial nodes = n − l − 1','angular = l'],['FC = V − L − B/2','valence − dots − lines'],['M_1V_1 = M_2V_2','mM × mL = µmol'],['% yield = actual/theoretical × 100','']];
+ const rules=[['Radius','↑ down a group, ↓ across. Cation &lt; atom &lt; anion. Isoelectronic: more protons = smaller.'],['Ionization energy','↑ up and across. Exceptions: Be &gt; B, N &gt; O. Big jump = core electrons.'],['Electron affinity','+ = released (course sign). ↑ up and across. Cl &gt; F. Low: group 2, group 15, noble gases.'],['Configs','Cr 3d^5 4s^1, Cu 3d^10 4s^1. Ions lose 4s before 3d: Fe^2+ = [Ar]3d^6.'],['Valence e⁻','After the noble gas, minus full lower-n subshells (Ga: 3).'],['Lattice energy','Charge first, then smaller ions. MgO ≫ NaF &gt; NaCl &gt; KCl.'],['Lewis','Count → central (lowest IE) → single bonds → outer lone pairs → leftovers on center → multiple bonds if short.'],['Formal charge','Closest to 0. A negative FC goes on the most electronegative atom.'],['Octet','C N O F strict. Period 3+ can expand (SF_4, I_3^−, XeF_4). B is OK with 6. Odd e⁻ = radical.'],['Orbitals','l ≤ n−1, m_{l} = −l…+l. n^2 orbitals per shell. H: same n = same energy.'],['Bonds','χ: F highest. Δχ ≈ 2 ionic, &lt; 1.5 covalent. Higher bond order = stronger + shorter.'],['VSEPR','Count regions (a multiple bond = 1). Name the shape from atoms only. NH_3 pyramidal, H_2O bent, SF_4 seesaw, XeF_4 square planar.']];
+ return `<section class="band"><h1>Cheat sheet</h1><div class="cheat"><div class="card fig2">${trendSVG()}</div>
+ <div class="card"><h2>Equations</h2><table class="eq">${eq.map(([a,b])=>`<tr><td>${fm(a)}</td><td class="muted">${fm(b)}</td></tr>`).join('')}</table></div></div>
+ <div class="card"><h2>Rules to know cold</h2><dl class="rules">${rules.map(([a,b])=>`<dt>${a}</dt><dd>${fm(b)}</dd>`).join('')}</dl></div></section>`}
+
+// ---------- PROGRESS ----------
+function rProgress(){const tot=Object.values(ST.tp).reduce((a,s)=>[a[0]+s.c,a[1]+s.c+s.w],[0,0]);
+ const sec=s=>{const ts=TOPICS.filter(t=>t.sec===s).map(t=>t.id);let c=0,n=0;ts.forEach(t=>{const x=ST.tp[t];if(x){c+=x.c;n+=x.c+x.w}});return n?Math.round(c/n*100):null};
+ const wq=weakQs();
+ return `<section class="band"><h1>Progress</h1><p class="why">${tot[1]?`${tot[1]} questions answered, ${Math.round(tot[0]/tot[1]*100)}% correct overall.`:'Nothing answered yet. Your stats show up here as you practice.'} Saved on this device.</p>
+ <div class="secres">${[3,2,1].map(s=>{const p=sec(s);return `<div class="card s${s}"><p>Section ${s}</p><b>${p==null?'–':p+'%'}</b><small>${s===1?'Midterm 1 was 76%':s===2?'Midterm 2 was 80%':'New material'}</small></div>`}).join('')}</div>
+ <h2>By topic</h2><div class="bars">${TOPICS.map(t=>{const a=acc(t.id),n=attempts(t.id);return `<div class="bar"><span>${tlabel(t.id)}</span><span class="tr"><i class="s${t.sec}" style="width:${a==null?0:a*100}%"></i></span><span class="v">${a==null?'–':Math.round(a*100)+'%'} <small>${n}</small></span></div>`}).join('')}</div>
+ <h2>Missed questions (${wq.length})</h2>${wq.length?wq.slice(0,40).map(q=>`<div class="miss"><p class="eyebrow">${tlabel(q.t)}</p><div>${fm(q.q)}</div><p class="ans">Answer: <b>${q.type==='rank'?q.items.map(fm).join(' > '):fm(q.o[q.a])}</b></p></div>`).join(''):'<p class="muted">None right now.</p>'}
+ <div class="row"><button class="btn ghost" id="rs">Reset all progress</button><span id="rsc"></span></div></section>`}
+function bindProgress(){$('#rs').onclick=()=>{$('#rsc').innerHTML='Sure? <button class="btn bad" id="rsy">Yes, erase everything</button>';$('#rsy').onclick=()=>{ST={q:{},tp:{},cards:{},done:{},todo:{},read:{},seen:{}};save();render()}}}
+
+// ---------- boot ----------
+const _render=render;render=function(){_render();({daily:bindDaily,learn:bindLearn,practice:bindPractice,cards:bindCards,lewis:bindLewis,progress:bindProgress,cheat:()=>{}})[view]()};
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{if(b.dataset.v==='practice'&&session&&!session.over&&view!=='practice'){view='practice';sub='run';render();return}go(b.dataset.v)});
+const h0=location.hash.slice(1);if(VIEWS.includes(h0))view=h0;
+window.addEventListener('hashchange',()=>{const v=location.hash.slice(1);if(VIEWS.includes(v)&&v!==view)go(v)});
+render();
+}
+
+</script>
+</body></html>
